@@ -197,7 +197,7 @@ Time estimate (one line)
 > "Welcome to this course on AI ethics and responsible use. In this course, you will learn to recognize that ethical judgment in AI use is an extension of existing professional decision-making, apply core competencies as a lens for making ethical decisions, distinguish between policy violations and ethical dilemmas, and analyze ethical dilemmas using Kidder's framework."
 
 **After:**
-> "You've completed ABA's AI policy training. You know what's allowed and what isn't. This course picks up where policy leaves off.
+> "You've completed {{client}}'s AI policy training. You know what's allowed and what isn't. This course picks up where policy leaves off.
 >
 > Many of the AI decisions you face at work aren't clear-cut. The policy covers a lot, but it can't anticipate every situation. When you're in that gray area, your judgment matters.
 >
@@ -220,7 +220,7 @@ Catalog-ready summaries for an LMS or program overview. Short, engaging, make le
 ### Cut these from a catalog description
 A description says what the learner *gets*, not how the course is built. Cut on sight:
 - **Scenario mechanics.** Dataset names and counts ("four datasets"), artifact specifics ("one-page readout," "messy export"), fiscal-year or persona labels ("FY27 budget," "the events lead"). These live in the facilitation guide, not the catalog.
-- **Audience qualifiers.** "at ABA," "even for people never trained as analysts." Descriptions travel across catalogs; keep them role-agnostic unless the audience *is* the hook.
+- **Audience qualifiers.** "at {{client}}," "even for people never trained as analysts." Descriptions travel across catalogs; keep them role-agnostic unless the audience *is* the hook.
 - **Throat-clearing setup lines.** "The hard part usually isn't the tool." Get to the point.
 - **Restated payoffs.** If a sentence says the value a second time in new words ("the approach carries over to any data you bring"), cut it once the point is made.
 

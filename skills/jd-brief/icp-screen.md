@@ -25,7 +25,7 @@ Four tests. Size and sector are filters, buy signal sets the goal, values alignm
 
 So for anything between 1,000 and 5,000, read the req and ask: **is this mandate central or business-unit scoped?**
 
-- **Central** reads as "enterprise AI transformation," "across the company," "all business units," sits on the People or HR team, and reports to a CHRO or CPO. Progressive Leasing at 1,480 qualifies on exactly this basis
+- **Central** reads as "enterprise AI transformation," "across the company," "all business units," sits on the People or HR team, and reports to a CHRO or CPO. {{prospect company}} at 1,480 qualifies on exactly this basis
 - **Business-unit scoped** names one function, one division, or one product line, and reports into that unit
 
 Central mandate keeps a larger company in play. Business-unit scope at that size means a different engagement than the one on the sales surface, and should be flagged rather than pursued by default.
@@ -119,7 +119,7 @@ Work crosses functions by default.
 | **2 to 3** | Weak. Downgrade the goal to relationship only. Do not build an engagement thesis on it |
 | **0 to 1** | Walk, even if size, sector, and buy signal all pass. The work will not land |
 
-**A worked example of a high score.** Progressive Leasing's posting carries an explicit Employee Value Proposition naming "opportunity for inclusive collaboration, opportunity for innovation, and opportunity for development," and the req independently echoes all three: people "set up to succeed," managers equipped for "the tougher conversations," and Talent, HR, and Technology named as partners. The buyer's own published work argues for mutual mentorship and cross-functional development. Three dimensions corroborated across all three evidence sources, which is what a 3 looks like rather than a 1.
+**A worked example of a high score.** {{prospect company}}'s posting carries an explicit Employee Value Proposition naming "opportunity for inclusive collaboration, opportunity for innovation, and opportunity for development," and the req independently echoes all three: people "set up to succeed," managers equipped for "the tougher conversations," and Talent, HR, and Technology named as partners. The buyer's own published work argues for mutual mentorship and cross-functional development. Three dimensions corroborated across all three evidence sources, which is what a 3 looks like rather than a 1.
 
 **This list is open.** MQ named these three as the ones she could articulate now. Add a dimension when a real engagement shows a fourth thing mattered.
 

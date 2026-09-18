@@ -54,7 +54,7 @@ When running unattended (the scheduled sweep), the mirror happens in the store, 
 mh question add <key#id> "<the question>" --proposed "<your default answer>" --blocks "<who waits>" --actor orca
 ```
 
-**A proposed answer is mandatory.** A question without one is a research task, not a question: do the research, then ask. The cheapest reply Mariena can give is Accept, and every question should be one click from closed. `--blocks` names the person or session waiting (Anushka, Thursday's session, the dispatch); a question that blocks nobody is a note, not a question. The command prints `Q<n>`; list the ids in the brief under `## Mariena's Next Actions` as `- Q41: <text>` with **no** `**MQ:**` slot, then stop. The next sweep resumes when `mh question list <key#id>` is empty; it never reads slots.
+**A proposed answer is mandatory.** A question without one is a research task, not a question: do the research, then ask. The cheapest reply Mariena can give is Accept, and every question should be one click from closed. `--blocks` names the person or session waiting ({{instructional designer}}, Thursday's session, the dispatch); a question that blocks nobody is a note, not a question. The command prints `Q<n>`; list the ids in the brief under `## Mariena's Next Actions` as `- Q41: <text>` with **no** `**MQ:**` slot, then stop. The next sweep resumes when `mh question list <key#id>` is empty; it never reads slots.
 
 ### Step 2: Assess
 
@@ -253,4 +253,4 @@ Every brief ends with a **Notes for pattern refinement** section. What surfaced 
 
 ## Origins
 
-Pattern surfaced during the Rick Cowork email task on wk 7/13, 2026. Brief at `course-material/ABA/ai-advisory/2026-07-cowork-research/2026-07-rick-cowork-brief.md`.
+Pattern surfaced during the {{stakeholder}} Cowork email task on wk 7/13, 2026. Brief at `course-material/{{client}}/ai-advisory/2026-07-cowork-research/2026-07-{{stakeholder}}-cowork-brief.md`.

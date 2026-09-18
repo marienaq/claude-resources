@@ -68,4 +68,4 @@ A markdown brief saved in the course or session folder, consultant-facing (a wor
 
 ## Reference example
 
-The "AI as a Thinking Partner" course brief at `course-material/ABA/ABA_Programs/AI_Academy/Task_Based_Skills/05_AI_as_a_Thinking_Partner/ai-as-a-thinking-partner-scoping-brief.md` was built with this process and is a worked example of the output.
+The "AI as a Thinking Partner" course brief at `course-material/{{client}}/ABA_Programs/AI_Academy/Task_Based_Skills/05_AI_as_a_Thinking_Partner/ai-as-a-thinking-partner-scoping-brief.md` was built with this process and is a worked example of the output.

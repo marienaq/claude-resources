@@ -41,7 +41,7 @@ Reference this catalog when mapping client needs to services (proposal skill, Mo
 - 2hr monthly session + 1hr monthly demo day + office hours
 - Intake/midpoint surveys, capstone + certification
 
-## Leadership Intensive (introduced via Tebra, May 2026)
+## Leadership Intensive (introduced via {{client 2}}, May 2026)
 
 - 3-month, three-session leadership-focused engagement
 - For senior leaders (~30 people) at Lighthouse Clients

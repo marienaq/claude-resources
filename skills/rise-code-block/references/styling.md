@@ -94,7 +94,7 @@ Rise native buttons are pill-shaped with uppercase text.
 }
 ```
 
-> **Open question, flagged 2026-08-11.** This sets `font-weight: 400`, but the shipped ABA blocks in the localStorage pattern use `700`. At 12px uppercase with dark text on gold, 700 reads considerably better. Confirm which is the convention and make this file match.
+> **Open question, flagged 2026-08-11.** This sets `font-weight: 400`, but the shipped {{client}} blocks in the localStorage pattern use `700`. At 12px uppercase with dark text on gold, 700 reads considerably better. Confirm which is the convention and make this file match.
 
 #### Secondary button (outlined)
 
@@ -252,7 +252,7 @@ Clickable rows with hover and selected states. Use negative margin to extend the
 
 ---
 
-## AI@ABA (AI Academy) Colors: ABA-specific
+## {{client program}} (AI Academy) Colors: {{client}}-specific
 
 | Color | Hex | Use |
 |-------|-----|-----|
@@ -263,9 +263,9 @@ Clickable rows with hover and selected states. Use negative margin to extend the
 | **Copper** | #d0774f | Secondary |
 | **Cyan** | #30cbf1 | Secondary |
 
-### ABA Button Convention
+### {{client}} Button Convention
 
-Submit/action buttons in ABA courses use Gold (`#f2b16f`) with dark text (`#2d2d2d`), not white text. The gold is too light for white text to be readable. Hover state: `#e09d5a`.
+Submit/action buttons in {{client}} courses use Gold (`#f2b16f`) with dark text (`#2d2d2d`), not white text. The gold is too light for white text to be readable. Hover state: `#e09d5a`.
 
 ```css
 .submit-btn {
@@ -281,7 +281,7 @@ Submit/action buttons in ABA courses use Gold (`#f2b16f`) with dark text (`#2d2d
 
 ## Adapting Colors
 
-The accent color (`#200d78` in ABA examples) should match the course or organization's brand. When changing the accent color, update it in:
+The accent color (`#200d78` in {{client}} examples) should match the course or organization's brand. When changing the accent color, update it in:
 - Button `background-color` and hover state
 - Divider `border-top`
 - Checkbox `:checked` states (`border-color` and `background-color`)

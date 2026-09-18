@@ -1,11 +1,11 @@
 ---
 name: project-kickoff
-description: Turns a project idea plus already-gathered context into a Notion project page that works as a shareable context hub, holding the background, scope, research, reference links (Zoom recordings, transcripts, docs), and people, ready to hand to a collaborator without a meeting. Use when starting a new project and capturing what is known, preserving in-conversation research as project context, or preparing a clean handoff page. Triggers include "kick off a project for this", "capture this context in a Notion project so I can share it with Jennifer", "set up a project hub for [topic]".
+description: Turns a project idea plus already-gathered context into a Notion project page that works as a shareable context hub, holding the background, scope, research, reference links (Zoom recordings, transcripts, docs), and people, ready to hand to a collaborator without a meeting. Use when starting a new project and capturing what is known, preserving in-conversation research as project context, or preparing a clean handoff page. Triggers include "kick off a project for this", "capture this context in a Notion project so I can share it with {{researcher}}", "set up a project hub for [topic]".
 ---
 
 # Project Kickoff
 
-Turn a project idea plus the context you've already gathered into a Notion project that works as a **shareable context hub**: a page whose body holds the background, scope, research, reference links (Zoom recordings, transcripts, docs), and people, structured so you can hand it to a collaborator (e.g., Jennifer) and they have everything they need without a meeting.
+Turn a project idea plus the context you've already gathered into a Notion project that works as a **shareable context hub**: a page whose body holds the background, scope, research, reference links (Zoom recordings, transcripts, docs), and people, structured so you can hand it to a collaborator (e.g., {{researcher}}) and they have everything they need without a meeting.
 
 ## When to Use
 
@@ -15,7 +15,7 @@ Use this skill when:
 - You need to hand a project off to a partner or teammate and want a clean, self-contained page to share
 - You have reference material (recording links, transcripts, external docs) that should live with the project
 
-Invoke with `/project-kickoff` or when the user says things like "kick off a project for this," "capture this context in a Notion project so I can share it with Jennifer," or "set up a project hub for [topic]."
+Invoke with `/project-kickoff` or when the user says things like "kick off a project for this," "capture this context in a Notion project so I can share it with {{researcher}}," or "set up a project hub for [topic]."
 
 ---
 
@@ -37,9 +37,9 @@ The one-call efficiency: `notion-create-pages` accepts both `properties` (the re
 ## Notion Database References
 
 Same as `/project-tasks`:
-- **Projects database ID:** `9cc1ad07-e329-49b8-a05b-5f1673046796`
-- **Projects data source:** `collection://c1f3b496-b2f7-485d-9b60-b678d1aa3897`
-- **Tasks data source:** `collection://55c3013a-e57a-4ac9-95f4-827418b72f6d`
+- **Projects database ID:** `{{projects-database-id}}`
+- **Projects data source:** `collection://{{projects-data-source-id}}`
+- **Tasks data source:** `collection://{{tasks-data-source-id}}`
 
 Projects schema key fields: `Name` (title), `Status` (Not started / In progress / Ongoing / On Hold / Done), `Priority` (HIGH/MEDIUM/LOW), `Project Type` (School / Personal / Business Development / Finance / Marketing / Client / Operations), `Project Description` (text), `Notes from Mariena` (text), `Owner` (person). Full schema is in `.claude/skills/project-tasks/references/notion-schemas.md`.
 
@@ -57,7 +57,7 @@ Pull context from three sources, in this order:
 Confirm the essentials before creating anything:
 - Project name and where it lives (directory + Project Type)
 - Priority
-- Who it's being shared with (the collaborator, named in the body, e.g., Jennifer)
+- Who it's being shared with (the collaborator, named in the body, e.g., {{researcher}})
 
 ### 2. Draft the page body (show the user before creating)
 
@@ -66,7 +66,7 @@ Assemble the body from the template below. **Present the draft to the user for r
 ### 3. Create the project record + body in one call
 
 Use `notion-create-pages` with:
-- `parent`: `{ "type": "data_source_id", "data_source_id": "c1f3b496-b2f7-485d-9b60-b678d1aa3897" }`
+- `parent`: `{ "type": "data_source_id", "data_source_id": "{{projects-data-source-id}}" }`
 - `properties`: `Name`, `Project Type`, `Status` ("In progress"), `Priority`, `Project Description` (a one-to-two sentence summary; the body holds the detail)
 - `content`: the full kickoff body (Markdown from the template)
 - `icon`: an emoji that fits the project (optional but nice for a shared page)
@@ -97,7 +97,7 @@ If the user wants the collaborator tagged on the record, set the `Owner` (person
 Use these sections in this order. Drop any that don't apply.
 
 ```markdown
-> **Kickoff context for [collaborator, e.g. Jennifer].** Everything you need to get up to speed on this project is on this page. Last updated [date].
+> **Kickoff context for [collaborator, e.g. {{researcher}}].** Everything you need to get up to speed on this project is on this page. Last updated [date].
 
 ## Background & Goal
 [Why this project exists, what prompted it, and the goal in one short paragraph. Who it's for.]
@@ -124,7 +124,7 @@ bullets so it's skimmable. Include the reasoning and any caveats, not just concl
 ## People & Next Steps
 **People**
 - [Name]: [role on this project]
-- [Collaborator, e.g. Jennifer]: [what they're being brought in to do]
+- [Collaborator, e.g. {{researcher}}]: [what they're being brought in to do]
 
 **Open questions**
 - [Anything unresolved a collaborator should know]

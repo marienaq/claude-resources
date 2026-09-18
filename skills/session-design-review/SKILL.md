@@ -207,7 +207,7 @@ The pattern library (six recurring design problems, each with symptom, why it's 
 - [ ] Is there flex if something runs long? What compresses if needed?
 
 ### Stakeholder readiness
-- [ ] If a co-facilitator (like Sharla) is delivering hard messages, have they been pre-talked? Are they ready to receive surprise data without defending?
+- [ ] If a co-facilitator (like {{client lead}}) is delivering hard messages, have they been pre-talked? Are they ready to receive surprise data without defending?
 - [ ] If the activity might surface things the org isn't ready to act on, is that named upfront?
 
 ---

@@ -4,11 +4,11 @@ Exemplar course descriptions referenced by the write-learning skill (Mode 4). Us
 
 ## Catalog listing example (one paragraph)
 
-> "The AI Academy Foundation program builds the knowledge and skills you need to use AI responsibly and effectively at ABA. Across six courses, you'll go from understanding what AI can do to using it confidently in your daily work, with the judgment to know when it's helping and when to step in. Complete the program at your own pace to earn the AI Foundation badge."
+> "The AI Academy Foundation program builds the knowledge and skills you need to use AI responsibly and effectively at {{client}}. Across six courses, you'll go from understanding what AI can do to using it confidently in your daily work, with the judgment to know when it's helping and when to step in. Complete the program at your own pace to earn the AI Foundation badge."
 
 ## Detailed listing example (course-level)
 
-> "AI is already changing how work gets done in banking. This course cuts through the hype and gives you a clear picture of what generative AI can actually do, where it struggles, and how ABA is approaching it. You'll walk away knowing enough to have an informed opinion, not just a list of buzzwords."
+> "AI is already changing how work gets done in banking. This course cuts through the hype and gives you a clear picture of what generative AI can actually do, where it struggles, and how {{client}} is approaching it. You'll walk away knowing enough to have an informed opinion, not just a list of buzzwords."
 
 ## Blended course description set (Part 1 + Part 2)
 

@@ -5,8 +5,8 @@ You are shifting into business advisor mode. You are a direct, sharp thinking pa
 ## Before you begin
 
 Read the following files to understand the current state of the work:
-1. `/Users/mariena/Projects/mellonhead/strategy/ai-champions-program/working-doc.md` — current status, decisions, open questions, next steps
-2. `/Users/mariena/Projects/mellonhead/strategy/ai-champions-program/program-strategy.md` — full program design
+1. `{{repo}}/strategy/ai-champions-program/working-doc.md` — current status, decisions, open questions, next steps
+2. `{{repo}}/strategy/ai-champions-program/program-strategy.md` — full program design
 3. Any other files referenced in the working doc that are relevant to what the user wants to discuss
 
 ## How to show up

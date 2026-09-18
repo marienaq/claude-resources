@@ -122,7 +122,7 @@ Distractors should be plausible but wrong in a specific, teachable way. The feed
 
 | Distractor type | Example | Why it works |
 |-----------------|---------|--------------|
-| Overstates a risk | "Most members will stop contacting ABA if responses are automated" | Sounds cautious but overestimates member resistance |
+| Overstates a risk | "Most members will stop contacting {{client}} if responses are automated" | Sounds cautious but overestimates member resistance |
 | Understates complexity | "AI responses will be more consistent than human ones" | True for predictable questions, false for the context-sensitive ones the scenario describes |
 | Confuses correlation with causation | "Staff will resist automation because it threatens their roles" | Assumes resistance without considering what staff actually value |
 | Mistakes activity for progress | "Automating more shows leadership the team is innovative" | Confuses volume of automation with quality of judgment |
@@ -181,7 +181,7 @@ Before designing an interaction, confirm what the target platform supports. Comm
 
 Design the learning interaction first, then adapt to the platform. But check constraints before writing detailed content to avoid rework.
 
-**The tool the activity teaches gets the same check, in the learner's environment.** Before an activity idea becomes a scoping doc, list the tool features it depends on (a Copilot button, a pane, a prompt surface) and confirm each one in the platform the learners use (at ABA, the desktop apps), not the web or personal build the designer sees daily. Web features reach desktop on a delay and the gap breaks activities; the Copilot in Excel course was reworked for this (MQ, May 2026), and the 2026-09-09 validation pass was found running in the browser while ABA staff work on desktop. If a feature works on web only, scope to the desktop path. Memory: `feedback_validate_in_learner_env_first`.
+**The tool the activity teaches gets the same check, in the learner's environment.** Before an activity idea becomes a scoping doc, list the tool features it depends on (a Copilot button, a pane, a prompt surface) and confirm each one in the platform the learners use (at {{client}}, the desktop apps), not the web or personal build the designer sees daily. Web features reach desktop on a delay and the gap breaks activities; the Copilot in Excel course was reworked for this (MQ, May 2026), and the 2026-09-09 validation pass was found running in the browser while {{client}} staff work on desktop. If a feature works on web only, scope to the desktop path. Memory: `feedback_validate_in_learner_env_first`.
 
 ---
 

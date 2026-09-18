@@ -69,7 +69,7 @@ Examples:
 
 Container IDs and filenames follow the general conventions in `../SKILL.md`, not a separate rule for persistent blocks.
 
-### ABA course short codes
+### {{client}} course short codes
 
 Locked list. Use these exactly.
 

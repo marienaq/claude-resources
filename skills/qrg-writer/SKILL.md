@@ -138,7 +138,7 @@ All voice and style rules: `/writing-guide.md` (canonical). That covers dash rul
   ✗ Not: "emails containing 'budget'"
   ```
   Use wherever the reader might default to keyword-search thinking, be too vague, or skip context AI needs.
-- **Casing:** Sentence case for all headings, labels, and titles ("Lock the scope", "Pro tips", "Refining your results"). After a colon, capitalize the first word. Named frameworks, tools, and formal titles retain Title Case ("The ABA Ethical Decision Framework", "Microsoft Copilot"). No periods at the end of bullets unless they're full sentences.
+- **Casing:** Sentence case for all headings, labels, and titles ("Lock the scope", "Pro tips", "Refining your results"). After a colon, capitalize the first word. Named frameworks, tools, and formal titles retain Title Case ("The {{client}} Ethical Decision Framework", "Microsoft Copilot"). No periods at the end of bullets unless they're full sentences.
 
 ---
 
@@ -226,5 +226,5 @@ The research explains why. The QRG tells them what to do and shows the contrast.
 
 ## Gold Standard References
 
-- **Chiefs W1 AI Role-based Resource** (5 pages, 4 activities): standard activity sections, prerequisite workflows, sub-workflows, organizational context blocks. Location: `course-material/ABA/ABA_Programs/Role_Based_Workshops/Chiefs/W1_Key_Use_Cases_and_Fundamentals/AI-for-Chiefs-Role-based-AI-Resource.pdf`
-- **Member Comms W1 AI for Member Communications** (3 activities): standalone framing (no workshop references), prerequisite table block, "Other uses" block, comparison/extended reference block (writing machine-scorable criteria). Location: `course-material/ABA/ABA_Programs/Role_Based_Workshops/Member_Comms/Deliverables/Workshop-1_AI-for-Overhead/member-comms-qrg.md`
+- **Chiefs W1 AI Role-based Resource** (5 pages, 4 activities): standard activity sections, prerequisite workflows, sub-workflows, organizational context blocks. Location: `course-material/{{client}}/ABA_Programs/Role_Based_Workshops/Chiefs/W1_Key_Use_Cases_and_Fundamentals/AI-for-Chiefs-Role-based-AI-Resource.pdf`
+- **Member Comms W1 AI for Member Communications** (3 activities): standalone framing (no workshop references), prerequisite table block, "Other uses" block, comparison/extended reference block (writing machine-scorable criteria). Location: `course-material/{{client}}/ABA_Programs/Role_Based_Workshops/Member_Comms/Deliverables/Workshop-1_AI-for-Overhead/member-comms-qrg.md`

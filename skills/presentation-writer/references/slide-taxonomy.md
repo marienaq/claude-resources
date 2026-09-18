@@ -11,7 +11,7 @@ The full catalog of Mellonhead slide types, plus the arc slide sequences and in-
 - Workshop name (very large, gray): "AI Foundations & Key Use Cases"
 - Facilitator: "with **Mariena Quintanilla**"
 - Date at bottom left
-- AI@ABA logo bottom left
+- {{client program}} logo bottom left
 - Hero image right half
 - **For in-person workshops:** add a prominent QR code on the right side pointing to the shared materials folder. Participants scan as they arrive. Keep the code visible during early segments in case anyone needs to re-scan.
 

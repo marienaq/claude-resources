@@ -51,7 +51,7 @@ When the activity research describes a related technique that uses different ste
 
 When the reader needs to follow specific rules that affect how they use AI for this task. These are often client-specific or role-specific.
 
-- **Chiefs example:** "ABA visual guidelines" in Visual aids: Core visual rules (5 numbered items: Composition, Subject matter, Lighting, Color palette, Texture) plus Notable constraints
+- **Chiefs example:** "{{client}} visual guidelines" in Visual aids: Core visual rules (5 numbered items: Composition, Subject matter, Lighting, Color palette, Texture) plus Notable constraints
 - **Format:** Numbered rules or structured reference content. Can use cards, but often works as a clean numbered list with bold labels. May include a constraints/exclusions sub-section.
 - **Placement:** After the main Sample Prompt or after Pro Tips, depending on whether the reader needs the context before or after trying the technique.
 - **Framing:** Reference material, not instruction. "Here's what applies to your context." The reader consults this, they don't follow it step by step.

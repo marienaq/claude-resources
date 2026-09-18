@@ -1,6 +1,6 @@
 ---
 name: ai-tip-writer
-description: Writes AI tip-of-the-week content for ongoing client series (ABA all-staff forum, future clients; HumanGood is a past-client reference implementation). Handles topic scoping with a six-category problem framework, tip drafting (setup, tactic, sample prompt, speaker notes), cross-client adaptation, and output to PPTX (new deck or appended to existing). Pairs with /aba-presentation for ABA-branded artifacts. Triggers: "start a new batch of tips," "add 5 more tips to the existing batch," "adapt a past tip for a new client," "review this batch lineup."
+description: Writes AI tip-of-the-week content for ongoing client series ({{client}} all-staff forum, future clients; {{past client}} is a past-client reference implementation). Handles topic scoping with a six-category problem framework, tip drafting (setup, tactic, sample prompt, speaker notes), cross-client adaptation, and output to PPTX (new deck or appended to existing). Pairs with /{{client}}-presentation for {{client}}-branded artifacts. Triggers: "start a new batch of tips," "add 5 more tips to the existing batch," "adapt a past tip for a new client," "review this batch lineup."
 ---
 
 # AI Tip Writer
@@ -16,8 +16,8 @@ Write the recurring "AI Tip of the Week" content that lands in client all-staff 
 
 ## Reference Implementations
 
-- **HumanGood** (gold standard from a past client engagement, ran ~16 weeks): `course-material/HumanGood/AI Tip of the Week.docx`, a Word doc running log, monthly themes (Copilot, Lemme Ask, do/don't), broad-staff audience
-- **ABA Batch 1** (May 2026): `course-material/ABA/ai-advisory/2026-05-ai-tip-of-the-week/`, markdown source + 21-slide PPTX (cover + 10 tips x 2 slides), no themes, broad-staff audience for all-staff forum
+- **{{past client}}** (gold standard from a past client engagement, ran ~16 weeks): `course-material/{{past client}}/AI Tip of the Week.docx`, a Word doc running log, monthly themes (Copilot, {{custom assistant}}, do/don't), broad-staff audience
+- **{{client}} Batch 1** (May 2026): `course-material/{{client}}/ai-advisory/2026-05-ai-tip-of-the-week/`, markdown source + 21-slide PPTX (cover + 10 tips x 2 slides), no themes, broad-staff audience for all-staff forum
 
 Both follow the same writing pattern; the artifacts and brand differ.
 
@@ -38,7 +38,7 @@ Both follow the same writing pattern; the artifacts and brand differ.
 All voice and style rules: `/writing-guide.md` (canonical). Problem-first framing, AI is never the hero, peer voice, dash rules, and hype bans all live there. This skill adds only the tip-specific rules:
 
 - **Slide-density.** Body content fits on one slide (~50 words for setup + tactic, plus the prompt callout). If a tip needs more, the tactic is too broad. Split it.
-- **Sample prompts ground in real audience scenarios.** ABA examples reference banking, regulators, members. HumanGood examples reference housing, residents, IT tickets. Don't write generic "[topic]" placeholders unless that's the point of the tip.
+- **Sample prompts ground in real audience scenarios.** {{client}} examples reference banking, regulators, members. {{past client}} examples reference housing, residents, IT tickets. Don't write generic "[topic]" placeholders unless that's the point of the tip.
 - **Action cues are optional.** When a tip has a physical action (turn on the mic, click the icon, save to a notebook), close the prompt with `[action cue]` on its own line. Don't force this for tips that don't need it.
 
 ## Problem Categories Framework
@@ -82,7 +82,7 @@ A good 10-tip batch hits at least 4 of the 6 categories.
    - Connect related tips with internal references ("see Tip #2") to reinforce learning
 5. **Identify research/source needs.** Tips backed by evidence cite their source in the markdown:
    - Sycophancy: `Articles and Research/reducing-ai-sycophancy.md`
-   - Meeting transcripts: Member Comms W1 deliverable (`course-material/ABA/ABA_Programs/Role_Based_Workshops/Member_Comms/Deliverables/Workshop-1_AI-for-Overhead/ABA_ AI for Meeting Transcripts.md`)
+   - Meeting transcripts: Member Comms W1 deliverable (`course-material/{{client}}/ABA_Programs/Role_Based_Workshops/Member_Comms/Deliverables/Workshop-1_AI-for-Overhead/ABA_ AI for Meeting Transcripts.md`)
    - Brain fry / cognitive load: `Articles and Research/brain-fry-email-draft.md` + `When Using AI Leads to "Brain Fry".pdf`
 6. **Output:** Lineup table with date, title, hook (1 line), category, source (if any). Confirm with user before drafting.
 
@@ -101,7 +101,7 @@ A good 10-tip batch hits at least 4 of the 6 categories.
 **Process per tip:**
 1. **Setup.** Write 1-2 sentences naming the problem. Lead with a recognizable moment, not a feature.
 2. **Tactic.** Draft 2-3 numbered items. Each starts with a bold lead (the action), followed by the body (the reasoning or example). If the tactic is "do X," the lead names X and the body explains how/why.
-3. **Sample prompt.** Write a prompt the reader can copy. Use audience scenarios (banking for ABA, housing for HumanGood). Add `[action cue]` only if there's a physical step (mic on, click icon, save to notebook).
+3. **Sample prompt.** Write a prompt the reader can copy. Use audience scenarios (banking for {{client}}, housing for {{past client}}). Add `[action cue]` only if there's a physical step (mic on, click icon, save to notebook).
 4. **Speaker notes.** 3-4 bullets for the facilitator. Each one a separate idea: a setup line, a frame, a connection to another tip, a caveat to mention.
 5. **Self-check** (before showing the user):
    - Slide-density (body content fits a slide, ~50 words)?
@@ -110,7 +110,7 @@ A good 10-tip batch hits at least 4 of the 6 categories.
    - Sample prompt grounded in audience scenario?
    - Speaker notes give the facilitator three different things to say?
 
-**Output:** Markdown source per tip following the structure used in `course-material/ABA/ai-advisory/2026-05-ai-tip-of-the-week/2026-05-tips-batch-1.md`. Numbered headings for sections (Setup, Tactic, Sample prompt, Talking points for [name]).
+**Output:** Markdown source per tip following the structure used in `course-material/{{client}}/ai-advisory/2026-05-ai-tip-of-the-week/2026-05-tips-batch-1.md`. Numbered headings for sections (Setup, Tactic, Sample prompt, Talking points for [name]).
 
 **Iteration:** When the user gives feedback on a tip, the most common moves are:
 - Tighten the title (cut from 12 words to 6-8)
@@ -127,7 +127,7 @@ A good 10-tip batch hits at least 4 of the 6 categories.
 **Two paths:**
 
 **3a. New deck (most common):**
-1. Use the appropriate brand skill: `/aba-presentation` for ABA, future client-specific skills for others.
+1. Use the appropriate brand skill: `/{{client}}-presentation` for {{client}}, future client-specific skills for others.
 2. Build script structure:
    - Cover slide (eyebrow, title, batch label, line about how to use it)
    - For each tip: title slide + content slide (with speaker notes)
@@ -139,15 +139,15 @@ A good 10-tip batch hits at least 4 of the 6 categories.
 3. Save back to the same path (not a new file). Confirm with user before overwriting.
 4. Update the markdown source to include the new tips appended at the end (don't replace the existing log).
 
-**Code pattern (extending an existing ABA deck):**
+**Code pattern (extending an existing {{client}} deck):**
 
 ```python
 from pathlib import Path
 from pptx import Presentation
-# Import slide builders from /aba-presentation skill
+# Import slide builders from /{{client}}-presentation skill
 # (or paste them inline if running standalone)
 
-DECK = Path("/Users/mariena/Projects/mellonhead/course-material/ABA/ai-advisory/2026-05-ai-tip-of-the-week/2026-05-AI-Tip-of-the-Week-Batch-1.pptx")
+DECK = Path("{{repo}}/course-material/{{client}}/ai-advisory/2026-05-ai-tip-of-the-week/2026-05-AI-Tip-of-the-Week-Batch-1.pptx")
 prs = Presentation(str(DECK))
 
 # Add new tips at the end
@@ -166,16 +166,16 @@ prs.save(str(DECK))  # overwrite
 
 When a tip applies to multiple clients but with different examples:
 
-- **Tool naming.** Some clients use Copilot only (ABA). Others have custom assistants (HumanGood's "Lemme Ask"). Same tip, different tool reference. Don't write "Copilot/Lemme Ask": pick the right one for the client.
-- **Audience scenarios.** Banking/regulatory for ABA. Housing/resident-services for HumanGood. Tech-stack-specific for Tebra. Sample prompts must use the client's actual context.
-- **Brand application.** ABA uses `/aba-presentation`. HumanGood uses a Word doc running log (no slides yet). When a new client joins, decide whether to mirror HumanGood's running-doc model or ABA's slide-deck model based on their distribution channel.
-- **Course connections.** ABA can reference Foundations courses (Maintaining Trust for validation tips, Ethics for judgment tips). HumanGood references their own resource hub. Don't drag in another client's curriculum.
+- **Tool naming.** Some clients use Copilot only ({{client}}). Others have custom assistants ({{past client}}'s "{{custom assistant}}"). Same tip, different tool reference. Don't write "Copilot/{{custom assistant}}": pick the right one for the client.
+- **Audience scenarios.** Banking/regulatory for {{client}}. Housing/resident-services for {{past client}}. Tech-stack-specific for {{client 2}}. Sample prompts must use the client's actual context.
+- **Brand application.** {{client}} uses `/{{client}}-presentation`. {{past client}} uses a Word doc running log (no slides yet). When a new client joins, decide whether to mirror {{past client}}'s running-doc model or {{client}}'s slide-deck model based on their distribution channel.
+- **Course connections.** {{client}} can reference Foundations courses (Maintaining Trust for validation tips, Ethics for judgment tips). {{past client}} references their own resource hub. Don't drag in another client's curriculum.
 
 When adapting:
 1. Pull the markdown source for the original tip.
 2. Keep the structure (setup, tactic, prompt, notes).
 3. Swap the tool name, scenarios, and any course/resource references.
-4. Re-check speaker notes for facilitator-specific framing (Sharla vs. someone else).
+4. Re-check speaker notes for facilitator-specific framing ({{client lead}} vs. someone else).
 
 ## Quality Checks (per batch)
 
@@ -191,7 +191,7 @@ When adapting:
 
 ## Pairs With
 
-- **`/aba-presentation`**: produces the branded ABA .pptx artifact (Mode 3 output for ABA tips). The writing skill defines the content; the presentation skill renders it.
+- **`/{{client}}-presentation`**: produces the branded {{client}} .pptx artifact (Mode 3 output for {{client}} tips). The writing skill defines the content; the presentation skill renders it.
 - **`/marketing-writer`**: voice rules overlap (problem-first framing, no AI cliches). Invoke for tips that need a sharper hook or more punchy phrasing.
 - **`/write-learning`**: useful when a tip's body content needs the discipline of learning-resource writing (clear progression, no escape hatches). Especially relevant for tips connected to course material.
 

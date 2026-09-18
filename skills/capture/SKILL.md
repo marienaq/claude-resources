@@ -1,6 +1,6 @@
 ---
 name: capture
-description: Process a transcript or raw notes from any conversation (recurring internal meeting, prospecting/sales/BD call, discovery call, or an ad-hoc chat with a stakeholder) into filed source material, deduplicated action items, and captured context routed to the right home. Use when you have a transcript or notes and need to file them, pull out action items without duplicating what's already tracked, distinguish updates from real tasks, and route decisions/intel/insights to the correct destination (task-lists, priorities, Notion, prospect files, influences, book, or memory). Starts with the AI@ABA weekly; the routing engine generalizes to BD calls, discovery, and internal intel. Also runs a rolling Slack DM watch (/capture slack) over the collaborator watchlist, pulling only DMs that arrived since the last-read pointer and triaging them through the same engine, an email capture sweep (/capture email) over Gmail threads Mariena tags with the "context" label, extracting contacts to the Notion Personal CRM, opportunities to the Mellonhead CRM, action items to the priorities backlog for confirmation, and project context through the standard routing engine, a job-alert sweep (/capture jobs) that splits every Gmail thread labeled job-alerts, whatever the sender, into per-req stubs for the /jd-brief inbox without running the routing engine, and a meeting-transcript sweep (/capture transcripts) over the Google Drive folder where Tactiq meeting transcripts land, which files each new business transcript into the repo, skips personal ones, and runs them through the same engine under tighter limits on what may be written to memory.
+description: Process a transcript or raw notes from any conversation (recurring internal meeting, prospecting/sales/BD call, discovery call, or an ad-hoc chat with a stakeholder) into filed source material, deduplicated action items, and captured context routed to the right home. Use when you have a transcript or notes and need to file them, pull out action items without duplicating what's already tracked, distinguish updates from real tasks, and route decisions/intel/insights to the correct destination (task-lists, priorities, Notion, prospect files, influences, book, or memory). Starts with the {{client program}} weekly; the routing engine generalizes to BD calls, discovery, and internal intel. Also runs a rolling Slack DM watch (/capture slack) over the collaborator watchlist, pulling only DMs that arrived since the last-read pointer and triaging them through the same engine, an email capture sweep (/capture email) over Gmail threads Mariena tags with the "context" label, extracting contacts to the Notion Personal CRM, opportunities to the Mellonhead CRM, action items to the priorities backlog for confirmation, and project context through the standard routing engine, a job-alert sweep (/capture jobs) that splits every Gmail thread labeled job-alerts, whatever the sender, into per-req stubs for the /jd-brief inbox without running the routing engine, and a meeting-transcript sweep (/capture transcripts) over the Google Drive folder where Tactiq meeting transcripts land, which files each new business transcript into the repo, skips personal ones, and runs them through the same engine under tighter limits on what may be written to memory.
 ---
 
 # Capture
@@ -12,19 +12,19 @@ Turn a transcript or raw notes, from **any** conversation, into three things, in
 3. **Captured context, routed to its home**: decisions (made vs. open), useful background, and durable facts sent to wherever that kind of thing lives (the project's `context.md`, a prospect file, `influences/`, `book/field-notes/`, or memory; task-list Key Decisions holds one-line pointers, not the context itself).
 
 Two things have to be right, and they're the whole point of this skill:
-- **Routing**: figuring out *what this input is about* (which client, prospect, program, or person) and *where each piece of it belongs*. The same engine has to handle a weekly internal meeting, a first prospecting call for a brand-new lead, a discovery session, and "here's what I learned chatting with someone at ABA."
+- **Routing**: figuring out *what this input is about* (which client, prospect, program, or person) and *where each piece of it belongs*. The same engine has to handle a weekly internal meeting, a first prospecting call for a brand-new lead, a discovery session, and "here's what I learned chatting with someone at {{client}}."
 - **Triage**: telling a status update apart from a real task, an already-tracked item apart from a new one, and a task apart from a larger project.
 
 Get those right and confirm with Mariena before writing anything.
 
 ## When to Use
 
-- After a **recurring internal meeting** (e.g. "new AI@ABA weekly transcript, let's process it").
+- After a **recurring internal meeting** (e.g. "new {{client program}} weekly transcript, let's process it").
 - After a **prospecting / sales / BD call**: file it under the prospect, capture deal context and follow-ups.
 - After a **discovery call**: file the transcript, then hand the substance to the discovery skills.
 - After an **ad-hoc conversation** with an internal stakeholder or peer: capture what you learned (stakeholder intel, a decision, an attributed insight, a book-worthy moment) even when there's no formal transcript.
 - To re-process or update after a follow-up on any of the above.
-- **`/capture slack`**: sweep the Slack DM watchlist (Anushka, Jennifer) for messages since the last-read pointer; triage new asks, commitments, and insights through the standard engine. See the **Slack DM Watch** profile.
+- **`/capture slack`**: sweep the Slack DM watchlist ({{instructional designer}}, {{researcher}}) for messages since the last-read pointer; triage new asks, commitments, and insights through the standard engine. See the **Slack DM Watch** profile.
 - **`/capture email`**: sweep Gmail for threads Mariena has tagged with the **context** label; extract contacts, opportunities, action items, and project context. See the **Email Capture** profile.
 - **`/capture jobs`**: sweep Gmail for anything labeled **job-alerts**, whoever sent it; split each listing into per-req stubs in the `/jd-brief` inbox. A separate track from the `context` sweep, and it does **not** run the routing engine. See the **Job Alert Capture** profile.
 - **`/capture transcripts`**: sweep the meeting transcripts that have landed in Drive since the last pointer; file each business transcript into the repo and run it through the standard engine. Skips personal recordings. **This is the standing default for meeting capture** (MQ ruling 2026-09-09): transcripts are swept from here rather than hand-fed from `~/Downloads`. See the **Meeting Transcripts** profile.
@@ -73,7 +73,7 @@ Every extracted item has a type, and type determines destination. One input usua
 | Item type | Destination | Handoff / convention |
 |---|---|---|
 | **Mariena action item** (something *she* owes) | `mh task add <project> "<title>" --owner MQ --source capture --unconfirmed` (never a day card unless she scheduled it in the ruling) | Tag date explicit/inferred. No Notion for Mariena's tasks. |
-| **Someone else's action item** (Rick, Sharla, Jennifer, a stakeholder) | The project's `context.md`, or its **Key Decisions** block, as context, not a Mariena task | Only becomes a Mariena task if it creates a follow-up she owes. |
+| **Someone else's action item** ({{client IT lead}}, {{client lead}}, {{researcher}}, a stakeholder) | The project's `context.md`, or its **Key Decisions** block, as context, not a Mariena task | Only becomes a Mariena task if it creates a follow-up she owes. |
 | **Project status update** (no new work) | `mh task status` plus `mh task note` on the row it concerns | Not a task. |
 | **Decision, made** | The project's **`context.md`** (dated, with the reasoning) + a one-line dated entry in `task-list.md` **Key Decisions** | The task-list line is status; the reasoning lives in `context.md`. If durable + strategic, the key fact also goes to memory with a pointer back to the `context.md`. |
 | **Decision, discussed but not final** | Same, flagged as **open** with what's unresolved | Prevents false "settled" reads later. |
@@ -97,38 +97,29 @@ Each project directory that accumulates context gets one **`context.md`** at its
 
 ## Source Profiles
 
-A profile is a lookup table that short-circuits routing for a recurring source: where it files, who's in the room (so garbled auto-transcription names get normalized), and which projects/destinations it usually touches. **v1 ships the AI@ABA weekly.** Add profiles as new recurring sources come online (see "Extending"). For a one-off input with no profile (a first prospecting call, an ad-hoc chat), skip straight to the Routing Model.
+A profile is a lookup table that short-circuits routing for a recurring source: where it files, who's in the room (so garbled auto-transcription names get normalized), and which projects/destinations it usually touches. **v1 ships the {{client program}} weekly.** Add profiles as new recurring sources come online (see "Extending"). For a one-off input with no profile (a first prospecting call, an ad-hoc chat), skip straight to the Routing Model.
 
-### Profile: AI@ABA Weekly Check-in
+### Profile: {{client program}} Weekly Check-in
 
-- **Attendees / "core group":** Mariena (Mellonhead), Sharla Bailey (VP L&D), Rick Smith (IT / risk & governance). Executive sponsors: Alethea (CHRO), Karen.
-- **Transcript home:** `course-material/ABA/General-Transcripts/`
-- **Naming convention:** `weekly-ai-at-aba-checkin-YYYYMMDD.vtt` (date = meeting date).
+- **Attendees / "core group":** {{you}} ({{your company}}), {{client contact 1}} ({{role}}), {{client contact 2}} ({{role}}). Executive sponsors: {{sponsor 1}}, {{sponsor 2}}.
+- **Transcript home:** `course-material/{{client}}/General-Transcripts/`
+- **Naming convention:** `weekly-{{client-program}}-checkin-YYYYMMDD.vtt` (date = meeting date).
 - **Name normalization** (Zoom auto-transcription mangles names; always normalize):
   | Heard as | Actually |
   |---|---|
-  | Marina | Mariena |
-  | Charlotte, Carol, Charla | Sharla (Bailey) |
-  | Alicia, Alethia, Aletheus | Alethea (CHRO) |
-  | Karin, Kara | Karen (exec sponsor) |
-  | Rannice, Renice | Rannice (MCS stakeholder) |
-  | DWC | PwC |
-  | Leanne | Leann Shepp (Sales) |
-  | Tori | Victoria Zemil (Sales) |
+  | {{misheard variant}} | {{correct name}} |
+  | {{misheard variant}} | {{correct name (role)}} |
 
-  Other recurring names: Gary, Seth (agent policy, with Rick); Sheila (Chiefs stakeholder); Khalil (Member Comms); Jennifer (Mellonhead AI researcher); Ian Rose-Glowacki, Matt Brauch (Sales); Noor, Lionel, Alex (champions building agents); Albert (ABA, Power Automate / SharePoint); Rob (exec who championed PwC).
+  Other recurring names: {{list recurring attendees with their role or workstream}}.
 
 - **Projects this meeting usually touches → task-list to check:**
   | Project | task-list.md |
   |---|---|
-  | ABA General Advisory (strategy, FY27, office hours, policy audit, cross-cutting) | `course-material/ABA/ai-advisory/task-list.md` |
-  | RW: MCS | `course-material/ABA/ABA_Programs/Role_Based_Workshops/MCS/task-list.md` |
-  | RW: Chiefs W2 | `course-material/ABA/ABA_Programs/Role_Based_Workshops/Chiefs/W2_AI_for_Strategic_Decisions/task-list.md` |
-  | RW: Sales | `course-material/ABA/ABA_Programs/Role_Based_Workshops/Sales/task-list.md` |
-  | AI Champions | `course-material/ABA/ABA_Programs/AI_Champions/task-list.md` |
-  | AI Academy | `course-material/ABA/ABA_Programs/AI_Academy/task-list.md` |
+  | {{client}} General Advisory (strategy, office hours, policy, cross-cutting) | `course-material/{{client}}/ai-advisory/task-list.md` |
+  | {{workshop program 1}} | `course-material/{{client}}/{{program}}/task-list.md` |
+  | {{workshop program 2}} | `course-material/{{client}}/{{program}}/task-list.md` |
 
-  Default routing hint: **cross-cutting / strategy / IT-coordination / office-hours / policy / anything without a workshop home → AI General Advisory.**
+  Default routing hint: **cross-cutting / strategy / IT-coordination / office-hours / policy / anything without a workshop home → General Advisory.**
 
 ### Profile: Slack DM Watch (`/capture slack`)
 
@@ -138,8 +129,8 @@ Not a bounded transcript but a **rolling watch** over DMs from a fixed list of c
 
 | Person | Role | user_id | DM channel | TZ | Routing skew |
 |---|---|---|---|---|---|
-| Anushka | Instructional Designer | `U0A87A3H5KP` | `D0A84BQE64B` | Australia/Brisbane | AI Academy course builds (Stories, AI as a Thinking Partner, Brainstorming with AI). Her **blockers** → MQ action items; they often gate her whole week, and Brisbane is ~15h ahead, so a respond-by day matters more than a respond-by hour. Her **own commitments** → context, not MQ tasks. **Design questions** → the course brief / scoping-notes doc. |
-| Jennifer | AI Researcher | `U08LRE4LGSW` | `D08LRE5REP4` | America/New_York | Sales briefs R&D, MCS W3 tester interviews, research tasks. **Often moves substance to email**: a DM may only *reference* an email; capture it as "substance in email, not fetched" rather than treating the DM as the whole story. Never fetch the email from here (separate source). |
+| {{instructional designer}} | Instructional Designer | `{{slack-user-id}}` | `{{slack-dm-id}}` | {{timezone}} | AI Academy course builds (Stories, AI as a Thinking Partner, Brainstorming with AI). Her **blockers** → MQ action items; they often gate her whole week, and Brisbane is ~15h ahead, so a respond-by day matters more than a respond-by hour. Her **own commitments** → context, not MQ tasks. **Design questions** → the course brief / scoping-notes doc. |
+| {{researcher}} | AI Researcher | `{{slack-user-id}}` | `{{slack-dm-id}}` | {{timezone}} | Sales briefs R&D, MCS W3 tester interviews, research tasks. **Often moves substance to email**: a DM may only *reference* an email; capture it as "substance in email, not fetched" rather than treating the DM as the whole story. Never fetch the email from here (separate source). |
 
 **State file:** `automation/state/slack-watch-state.json` (moved from `.claude/skills/capture/` 8/18/26; headless runs can't write under `.claude/`), one row per watched person: `user_id`, `dm_channel`, `last_read_ts`, `display_name`.
 
@@ -181,8 +172,8 @@ Then run Steps 3–6 as usual, with these calibrations and destinations:
 
 | Item type | Destination | Convention |
 |---|---|---|
-| **New contact / contact update** | Notion **Personal CRM → Contacts** DB (data source `collection://e4e89d3c-883a-4ecf-ada5-a6aace1e3269`) | Dedup by name query first (SQL `LIKE` on first and last name separately). The schema has **no email/phone properties**; put them in the `Note` field and page body, matching existing entries. Useful properties: `Name` (title), `Note`, `LinkedIn` (url), `Trust Surface` (select: Former Client / Former Prospect / Colleague / Classmate / Referral Source / Tribal), `Professional Contact` (checkbox), `Last Contacted` (date), `Follow Up needed` (date), `Associations` (multi-select; only apply options that already exist). Updates to an existing contact: append to `Note` / page body and bump `Last Contacted`; don't overwrite. |
-| **New opportunity / opportunity update** | Notion **Mellonhead CRM → Opportunities** DB (data source `collection://f110feeb-1c3e-4d3e-8bde-b180806b0617`) | Dedup by company/opportunity name first. Useful properties: `Name` (title), `Sales Stage` (select; a warm intro lands at `2-Introduction`), `Active` (checkbox), `First Contact` / `Last Contact` (dates), `Next Steps` (text), `Tags` (multi-select), `Contacts` (relation → Contacts DB: create/find the contact records first, then link their page URLs), `Companies` (relation). Also mirror deal context into `prospects/<Name>/` or `business-development/<Name>/` per the standard routing table when the deal is substantial enough to have a repo home. |
+| **New contact / contact update** | Notion **Personal CRM → Contacts** DB (data source `collection://{{contacts-data-source-id}}`) | Dedup by name query first (SQL `LIKE` on first and last name separately). The schema has **no email/phone properties**; put them in the `Note` field and page body, matching existing entries. Useful properties: `Name` (title), `Note`, `LinkedIn` (url), `Trust Surface` (select: Former Client / Former Prospect / Colleague / Classmate / Referral Source / Tribal), `Professional Contact` (checkbox), `Last Contacted` (date), `Follow Up needed` (date), `Associations` (multi-select; only apply options that already exist). Updates to an existing contact: append to `Note` / page body and bump `Last Contacted`; don't overwrite. |
+| **New opportunity / opportunity update** | Notion **Mellonhead CRM → Opportunities** DB (data source `collection://{{opportunities-data-source-id}}`) | Dedup by company/opportunity name first. Useful properties: `Name` (title), `Sales Stage` (select; a warm intro lands at `2-Introduction`), `Active` (checkbox), `First Contact` / `Last Contact` (dates), `Next Steps` (text), `Tags` (multi-select), `Contacts` (relation → Contacts DB: create/find the contact records first, then link their page URLs), `Companies` (relation). Also mirror deal context into `prospects/<Name>/` or `business-development/<Name>/` per the standard routing table when the deal is substantial enough to have a repo home. |
 | **Mariena action item** | `priorities.md` → `## Backlog` (create it if missing), tagged `(from email capture — confirm)` | **Backlog only, never the day cards.** Mariena confirms and schedules; the sweep never places work into her week. Also mirror into the Opportunities row's `Next Steps` when the item belongs to a deal. |
 | **Project context** | Standard routing (Move 1/2): the project's `context.md`, scoping-notes doc, task-list Key Decisions (one-liners), influences, book, memory | Unchanged. |
 
@@ -209,9 +200,9 @@ A rolling watch over the meeting transcripts that land automatically in Google D
 
 **The personal/business gate, before anything else.** The folder is transcripts only, but not all of them are Mellonhead business; MQ records personal meetings on the same Meet account (verified 2026-09-03: an IEP plan review for her son sat two rows from a partner call). **Never file a personal transcript into this repo**, which is a public GitHub repository, and never route it to a project. Skip it, record `skipped-personal` in the state file, and say in the run summary which titles were skipped so she can correct a misjudgment. When a title is genuinely ambiguous, ask rather than filing.
 
-**The dedup gate, second.** MQ also feeds transcripts in by hand, so this sweep will re-see meetings that are already captured from another source. **Before reading a transcript in full, check whether that meeting is already in the repo**: grep the likely `context.md` files for the meeting's date, and look for a raw transcript already filed under the entity. Verified 2026-09-09: the Drive copy of the Jennifer Diamond weekly arrived hours after the same call had been captured from a text file MQ supplied, with full entries already written in two `context.md` files and a task row created. Re-processing it would have duplicated all of it. Record `already-captured` in the state file with a pointer to the existing entries, and move on.
+**The dedup gate, second.** MQ also feeds transcripts in by hand, so this sweep will re-see meetings that are already captured from another source. **Before reading a transcript in full, check whether that meeting is already in the repo**: grep the likely `context.md` files for the meeting's date, and look for a raw transcript already filed under the entity. Verified 2026-09-09: the Drive copy of the {{researcher}} Diamond weekly arrived hours after the same call had been captured from a text file MQ supplied, with full entries already written in two `context.md` files and a task row created. Re-processing it would have duplicated all of it. Record `already-captured` in the state file with a pointer to the existing entries, and move on.
 
-**Titles lie, and the calendar is where they lie.** A recurring meeting keeps the name of whatever it was first, long after the engagement ends. Verified 2026-09-09: a transcript titled "HG weekly check-in" was neither HumanGood (lost, wound down 2026-07-14) nor about it; it was MQ's standing weekly with a contractor, and the content was entirely ABA. **Route on the attendees and the content, never the title.** When the title names a client, check memory for whether that relationship is still live before filing anything under it.
+**Titles lie, and the calendar is where they lie.** A recurring meeting keeps the name of whatever it was first, long after the engagement ends. Verified 2026-09-09: a transcript titled "{{past client}} weekly check-in" was neither {{past client}} (lost, wound down 2026-07-14) nor about it; it was MQ's standing weekly with a contractor, and the content was entirely {{client}}. **Route on the attendees and the content, never the title.** When the title names a client, check memory for whether that relationship is still live before filing anything under it.
 
 **Three guardrails on volume** (MQ ruling 2026-09-03). This sweep sees every meeting she has, so the routing rules that are survivable by hand are not survivable at ten times the rate:
 
@@ -274,7 +265,7 @@ Job listings MQ wants screened arrive tagged `job-alerts`, either from a standin
 
 The three watches (`/capture email` + `/capture slack` + `/capture transcripts`) and `/capture jobs` run unattended 7x/day (6am–6pm every 2 hours, user crontab entry `7 6-18/2 * * *` running `/bin/launchctl kickstart gui/504/com.mellonhead.capture-sweep`, which starts the launchd job that runs `automation/capture-sweep.sh`; prompt in `automation/capture-sweep-prompt.md`, logs in `~/Library/Logs/mellonhead-capture-sweep.log`. Why the two-step: launchd's own calendar triggers never fire on this machine (verified twice 8/18/26), and cron can't run the sweep directly because outside the GUI session the Keychain is unreachable and `claude` reports "Not logged in" (verified 8/19/26), so cron does the timing and launchd provides the GUI-session execution context. The script flags any run under 30s as an ERROR (that signature means claude failed at startup)). A scheduled run follows the profiles above with these overrides:
 
-**Summary post → Slack `#agent-work-updates` (channel `C0BJ6FFH3QQ`).** After the sweeps, post ONE message in the exact shape below. **Format set by MQ 2026-09-01** after the previous one produced a page of prose every two hours: *"I can't read that every two hours."*
+**Summary post → Slack `#agent-work-updates` (channel `{{slack-channel-id}}`).** After the sweeps, post ONE message in the exact shape below. **Format set by MQ 2026-09-01** after the previous one produced a page of prose every two hours: *"I can't read that every two hours."*
 
 **One bullet per item, or the word `nothing`.** Never a paragraph. If an item needs more than a line, the line links to where the detail lives.
 
@@ -284,7 +275,7 @@ The three watches (`/capture email` + `/capture slack` + `/capture transcripts`)
 **Captured**
 _Email (`label:context`):_ nothing
 _Email (`label:job-alerts`):_ nothing
-_Slack DMs:_ six messages from Anushka
+_Slack DMs:_ six messages from {{instructional designer}}
 * Summarizing: asked to confirm copy is final before updating the Rise code block. You already confirmed, so this is closed (no new task).
 * Summarizing: all feedback actioned in Rise, new review requested. No response found.
 * Summarizing: pushed back on cutting the summary to two paragraphs. No answer found.
@@ -385,19 +376,19 @@ Pull two structures:
 **B. Per project discussed.** For each project:
 - **Context / feedback** genuinely worth keeping (the "why," a constraint, a number, a stakeholder read).
 - **Decisions:** separate **made** from **discussed-but-not-final**. Explicitly flag the open ones ("cadence decided = 1 hr/week; sign-up vs. drop-in still open").
-- **Action items for other people** (Rick, Sharla, Jennifer, stakeholders), captured as context, not as Mariena's tasks.
+- **Action items for other people** ({{client IT lead}}, {{client lead}}, {{researcher}}, stakeholders), captured as context, not as Mariena's tasks.
 
 ### Step 4: Triage against what's already tracked (the core step)
 **Read the record before proposing anything.** `mh task find <words>` for the rows that already cover an item, searching on words from the *deliverable* as well as the title (two Sales rows created on different days both described "what the agent does and does not do" and neither search on the other's title would have found it, 2026-09-11), `operations/tasks.json` and `operations/projects-dashboard.md` for the cross-project picture, `mh plan show` for the current week. Then sort every candidate item into exactly one bucket:
 
-- **Update only, no task.** Mariena narrating status ("Sales briefs are kicking off," "Jennifer's starting research") when the project already exists. Capture as a status/context update on the project; do **not** create a task.
+- **Update only, no task.** Mariena narrating status ("Sales briefs are kicking off," "{{researcher}}'s starting research") when the project already exists. Capture as a status/context update on the project; do **not** create a task.
 - **Already tracked; bump status.** The work maps to an existing task; just move its status and add a dated note (e.g. MCS W3 build, Chiefs Activity 2 design). Don't create a duplicate.
 - **New; add it.** Genuinely not tracked. Decide its home and whether it's a **task** or belongs to a **larger project/proposal**.
 
 While sorting, apply these distinctions:
 - **Task vs. larger project.** A one-shot deliverable ("draft the office-hours one-pager") is a task. An ongoing body of work ("People Manager FY27 proposal," "Sales briefs build") is a project; its news is usually an *update* to an existing project/task, not a new task.
 - **Route to the correct project,** even if it surfaced elsewhere. Watch for **cross-project duplicates**: the same item may already sit under a different project (e.g. an office-hours one-pager listed under Champions actually belongs in Advisory). Flag it and propose the move rather than adding a second copy.
-- **Others' action items** are captured as context/decisions in the project's `context.md`, not as Mariena tasks, unless they create a Mariena follow-up (e.g. "send Rick the info so he can decide").
+- **Others' action items** are captured as context/decisions in the project's `context.md`, not as Mariena tasks, unless they create a Mariena follow-up (e.g. "send {{client IT lead}} the info so he can decide").
 - **Committed dates** carry onto the task note, tagged explicit/inferred.
 
 ### Step 5: Present the triage; get rulings before writing
@@ -426,7 +417,7 @@ If the source was a **sales/BD call**, after the outputs are written, **offer** 
 
 ## What goes in memory vs. task-list
 
-Put it in **memory** only if it's durable, non-obvious, and useful across future sessions, e.g. a strategic stance ("Alethea declined PwC; believes ABA already has a strategy"), a program-shaping decision ("FY27 = quarterly boulders, two-vendor budget split"), a stakeholder fact, a governance state. Follow the memory rules in the project instructions: `type: project` (or feedback/reference), link related memories with `[[slug]]`, add the `MEMORY.md` index line, and prefer updating an existing file over creating a duplicate.
+Put it in **memory** only if it's durable, non-obvious, and useful across future sessions, e.g. a strategic stance ("{{sponsor}} declined {{vendor}}; believes {{client}} already has a strategy"), a program-shaping decision ("FY27 = quarterly boulders, two-vendor budget split"), a stakeholder fact, a governance state. Follow the memory rules in the project instructions: `type: project` (or feedback/reference), link related memories with `[[slug]]`, add the `MEMORY.md` index line, and prefer updating an existing file over creating a duplicate.
 
 Keep in the **task-list** only (not memory): status, dates, who's doing which sub-step, per-workshop build detail, anything that will be stale in a month.
 

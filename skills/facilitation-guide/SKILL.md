@@ -138,7 +138,7 @@ This skill adds only:
 - **Bold instruction labels are for the facilitator.** They describe what to do, not what to say. "Name the pain." "Frame what AI does here." "Land it."
 - **Quoted lines are suggested phrasing.** The facilitator hits the intent, not the exact words. But certain lines are worth memorizing: one-liners that anchor the session ("Scope is the prompt before the prompt").
 - **Contingencies are practical, not anxious.** "If the room is quiet, don't panic" is the tone. Name the situation, name the response, move on.
-- **Structural text:** Purpose statements are concise and outcome-focused. Segment descriptions use imperative fragments ("Name the pain. Make it visceral."). Prep checklists are specific and actionable ("Sanitized real email thread from ABA for participants to use," not "Prepare sample materials").
+- **Structural text:** Purpose statements are concise and outcome-focused. Segment descriptions use imperative fragments ("Name the pain. Make it visceral."). Prep checklists are specific and actionable ("Sanitized real email thread from {{client}} for participants to use," not "Prepare sample materials").
 - **The one dash exception:** quoted facilitator talk tracks may use em dashes because they cue a spoken pause. All prose around the talk track (framing, directions, contingencies) uses zero em dashes and zero double hyphens, per §3.1.
 
 ### Participant-facing copy routes to `/write-learning`
@@ -172,7 +172,7 @@ Every team is different. The framework is consistent, but these vary per worksho
 
 - **Scripting talk track lines.** These are intent, not scripts. If the talking points read like a teleprompter, they're too rigid.
 - **Missing contingencies.** Every Try segment needs at least one "if stuck" fallback. Every Q&A needs "if the room is quiet" prompts. Facilitators get anxious without safety nets.
-- **Vague prep checklists.** "Prepare materials" is not actionable. "Sanitized real email thread from ABA for participants to use" is.
+- **Vague prep checklists.** "Prepare materials" is not actionable. "Sanitized real email thread from {{client}} for participants to use" is.
 - **Skipping the problem framing.** Jumping straight to the approach without naming the pain. The problem framing is what earns attention for the technique.
 - **Over-timing.** Don't time every sentence. Time segments (~2 min, ~4 min), not individual talking points. The facilitator needs flexibility within segments.
 - **Hand-writing the prep email.** It is participant-facing copy. Route it through `/write-learning`, and never let "Rise," "VILT," or "QRG" reach a participant's inbox.
@@ -189,4 +189,4 @@ Every team is different. The framework is consistent, but these vary per worksho
 
 **AI Champions Facilitation Guide (new Gamma format)** is the current gold standard for structure and rendering: the two-zone layout (front-matter reference cards F1 to F5 plus continuously numbered move-cards), the four-pill card header, the mode color/icon system, the three-way color-coded talk track, and constant cross-card threading. Built as a Gamma document (not a deck), one card per timeline row.
 
-**Member Comms W1 "AI for Overhead"** remains the reference for pedagogy and voice: demo-led opening, two-attempt activities, structured reflection, micro-commitment closing, and the full appendix (Outcomes, Design Rules, Facilitation Notes). Location: `course-material/ABA/ABA_Programs/Role_Based_Workshops/Member_Comms/Deliverables/Workshop-1_AI-for-Overhead/workshop-structure.md.txt`
+**Member Comms W1 "AI for Overhead"** remains the reference for pedagogy and voice: demo-led opening, two-attempt activities, structured reflection, micro-commitment closing, and the full appendix (Outcomes, Design Rules, Facilitation Notes). Location: `course-material/{{client}}/ABA_Programs/Role_Based_Workshops/Member_Comms/Deliverables/Workshop-1_AI-for-Overhead/workshop-structure.md.txt`

@@ -147,7 +147,7 @@ Invoke with `/project-tasks` or when the user says things like "create a project
 
 ## Mode 4: Log Hours
 
-**Trigger:** User wants to log time worked on a project (e.g., "log 4 hours," "track my time," "bill 3 hours to TWG").
+**Trigger:** User wants to log time worked on a project (e.g., "log 4 hours," "track my time," "bill 3 hours to {{client 2}}").
 
 ### Steps
 
@@ -172,7 +172,7 @@ Invoke with `/project-tasks` or when the user says things like "create a project
 ### Shorthand the user may use
 - "log 4 hours" = 4 billable hours today on the current project
 - "log 2 hours non-billable" = 2 non-billable hours today
-- "bill 3 hours to TWG for video editing" = 3 billable hours to TWG with description
+- "bill 3 hours to {{client 2}} for video editing" = 3 billable hours to {{client 2}} with description
 
 ---
 
@@ -196,16 +196,16 @@ Invoke with `/project-tasks` or when the user says things like "create a project
 
 2. **Update the Capacity Dashboard:**
    - **Update team capacity:**
-     - Jennifer: which 2 task slots is she in? Are either open or about to open?
-     - Anushka: which workshop is she on? Is her slot open or about to open?
+     - {{researcher}}: which 2 task slots is she in? Are either open or about to open?
+     - {{instructional designer}}: which workshop is she on? Is her slot open or about to open?
    - **Update Mariena's Cognitive Budget:** Count deep/medium/shallow items for the coming week from the dashboard's next tasks, its milestone table, `## Backlog`, and the weekly goals
    - **Update the Reactivation Risk table:** Which "Waiting" workstreams could become active? What's the trigger, likelihood, and impact on Mariena?
    - **Check commitment rules:**
      - Are there 3+ deep work items this week? If so, something needs to move.
-     - Are Jennifer's or Anushka's slots full? If so, don't commit to new R&D or content timelines.
+     - Are {{researcher}}'s or {{instructional designer}}'s slots full? If so, don't commit to new R&D or content timelines.
      - Are 2+ items pending reactivation within 2 weeks? If so, recommend holding 1 deep work day as buffer.
      - Flag if commitment rules suggest not taking new discovery calls.
-     - **Is one non-ABA revenue conversation scheduled this week?** A conversation is a live exchange with a prospect, partner, or warm contact that could lead to revenue: a call booked, an outreach message actually sent, a follow-up that asks for a next step. Drafting, scoping docs, and strategy work do not count. If none is on the plan, flag it with the same weight as a Rule 1 violation and ask which one goes in. Pipeline building does not wait for offers to be finished.
+     - **Is one non-{{client}} revenue conversation scheduled this week?** A conversation is a live exchange with a prospect, partner, or warm contact that could lead to revenue: a call booked, an outreach message actually sent, a follow-up that asks for a next step. Drafting, scoping docs, and strategy work do not count. If none is on the plan, flag it with the same weight as a Rule 1 violation and ask which one goes in. Pipeline building does not wait for offers to be finished.
 
 3. **Gather inputs for next week:**
    - Check Notion calendar (search for the week's dates) to find meetings. Results will be partial.
@@ -230,9 +230,9 @@ Invoke with `/project-tasks` or when the user says things like "create a project
    - Keep buffer: don't fill every day to 100%
    - Flag if a day looks overloaded
    - **Hold the two named on-the-business days** (Rule 6 in `priorities.md`; MQ 2026-08-17): **Tuesday is outreach, Thursday is content.** Small strategy work rides along on either. Name specific tasks on them, never themes: an outreach day is named people with a per-person message state, a content day is named pieces with their clearance status. Client delivery scheduled into either day is a rule break to name in the proposal, not a judgment call; the failure on record is a named day eaten mid-day by client work that arrived.
-   - **Monday-holiday weeks split two and two** (MQ 2026-09-06): two ABA days and two on-the-business days, for that week only (the week of 9/7 ran Tue and Thu ABA, Wed and Fri on the business). Propose the split, say it is the holiday exception, and restore Tuesday-outreach / Thursday-content the following week. Do not argue with the inverted shape as a Rule 6 break.
+   - **Monday-holiday weeks split two and two** (MQ 2026-09-06): two {{client}} days and two on-the-business days, for that week only (the week of 9/7 ran Tue and Thu {{client}}, Wed and Fri on the business). Propose the split, say it is the holiday exception, and restore Tuesday-outreach / Thursday-content the following week. Do not argue with the inverted shape as a Rule 6 break.
    - **A `Question:` row is never a day-card item** (MQ 2026-09-06), however urgent. It is a request for a ruling, not work. Surface it around the plan (the generated `## Open questions`, the Slack check-in); when it gates a dated deliverable, say so next to the deliverable ("ships Wednesday, blocked on `key#N`"). The task it blocks gets the day card; the question does not.
-   - **Place the week's non-ABA revenue conversation on a specific day** (Rule 8 in `priorities.md`). It is usually Shallow (a send, a booked call, a follow-up with an ask), so it can ride on a meeting-heavy day; the point is that it appears as a dated task, not a backlog item. If the candidate is "send staged outreach," pick the named recipients during planning so execution is mechanical.
+   - **Place the week's non-{{client}} revenue conversation on a specific day** (Rule 8 in `priorities.md`). It is usually Shallow (a send, a booked call, a follow-up with an ask), so it can ride on a meeting-heavy day; the point is that it appears as a dated task, not a backlog item. If the candidate is "send staged outreach," pick the named recipients during planning so execution is mechanical.
 
    **Placement is a write, so it goes through the CLI:**
 
@@ -337,14 +337,14 @@ Curriculum database IDs (Workshops, Activities, Clients): `references/notion-sch
 
 - **`operations/tasks.db` is the system of record. The markdown is a generated view of it, and Notion is the collaboration surface.** Set 2026-08-17 (local over Notion), extended at Phase 2 cutover (store over markdown), replacing the previous "Notion is the system of record / always sync both directions" rule. That rule described a sync that had already stopped: 16 of 17 `task-list.md` files carried no Notion IDs at all, so Notion reads were returning a months-old picture and every read cost real time. Do not restore two-way sync.
 - **What goes in Notion** (write these, keep them current):
-  - **Contractor-assigned tasks.** Jennifer primarily, Anushka as applicable. They cannot read this repo, so anything they own must live in Notion with everything they need to act, and no local paths.
+  - **Contractor-assigned tasks.** {{researcher}} primarily, {{instructional designer}} as applicable. They cannot read this repo, so anything they own must live in Notion with everything they need to act, and no local paths.
   - **Workshops and Activities** databases, and project pages that carry context a contractor needs.
   - **Client Hours and Clients.** No local equivalent exists.
 - **What stays local only:** Mariena's own tasks. Do not create Notion tasks for them, and do not query Notion to find out what she is working on. The reason closures stopped happening is that closing required a second write to a system she does not open; removing that second write is what makes closure likely.
 - **Never read Notion to establish current state.** Read `operations/projects-dashboard.md` and `operations/tasks.json`, or run `mh task next --all` / `mh project list`.
 - **Task numbering** is assigned by the store, sequential within a project and never reused (even if a task is canceled). A task created through the UI or the CLI gets the next free number in its project. `key#N` tags written before cutover all still resolve.
 - **There is no `→` next-task marker.** It was retired in favour of the `Seq` column, which the store owns. Do not reintroduce an arrow.
-- **Owner, Due, and Seq columns** sit after Notes. Owner is MQ, Orca, Iddy, Fanny, Jennifer, Anushka, or a stakeholder name; Due is `YYYY-MM-DD` or blank; Seq is the author's intended order within the project.
+- **Owner, Due, and Seq columns** sit after Notes. Owner is MQ, Orca, Iddy, Fanny, {{researcher}}, {{instructional designer}}, or a stakeholder name; Due is `YYYY-MM-DD` or blank; Seq is the author's intended order within the project.
 - **Link convention.** A `priorities.md` line that belongs to a project ends with `` `key#N` `` (registry key, row number). No tag means a one-off. The prose form ("Champions task 24") is retired.
 - **The local `task-list.md` is the quick-reference file.** It should be readable on its own without Notion access, and readable without SQLite. `mh export` writes `operations/tasks-export.md` as the rollback copy.
 - **Run `mh verify` when anything looks off**, and `mh regen` to fix it. Non-zero means a generated file was hand-edited or a write skipped regeneration.

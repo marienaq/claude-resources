@@ -34,21 +34,21 @@ Single table covering every card in the session: card number (filled in second p
 | # | Card | Mode | Time | Start–End | Lead | What happens |
 |---|---|---|---|---|---|---|
 | 1 | Opening + chat question | [CHAT] | 3 min | 2:00–2:03 | Mariena | Welcome + chat question on hardest part of being a Champion |
-| 2 | Acknowledgment + recommit framing | [SLIDES] | 5 min | 2:03–2:08 | Sharla | Pick up chat themes + frame the manager-in-the-loop shift |
+| 2 | Acknowledgment + recommit framing | [SLIDES] | 5 min | 2:03–2:08 | {{client lead}} | Pick up chat themes + frame the manager-in-the-loop shift |
 | ... | | | | | | |
 
 The "What happens" column emphasizes **what participants actually do**, not just the topic.
 
 ### B. Narrative arc paragraph
 
-A short prose paragraph (3-5 sentences) that walks through the session's narrative arc. Emphasizes activities and movement, not topics. *Example: "We open with a chat question that names what's been hard. Sharla picks up those themes and frames the shift we're making. Champions then generate their own work history on a shared whiteboard before seeing the role framework: agency before structure. From there we move into independent Action Plan work: brainstorm, barriers, prioritization, monthly plan. Peer Troika stress-tests the draft. We close with next steps and an interest poll."*
+A short prose paragraph (3-5 sentences) that walks through the session's narrative arc. Emphasizes activities and movement, not topics. *Example: "We open with a chat question that names what's been hard. {{client lead}} picks up those themes and frames the shift we're making. Champions then generate their own work history on a shared whiteboard before seeing the role framework: agency before structure. From there we move into independent Action Plan work: brainstorm, barriers, prioritization, monthly plan. Peer Troika stress-tests the draft. We close with next steps and an interest poll."*
 
 A returning facilitator reads this paragraph and remembers the shape immediately.
 
 ### C. Cross-cutting notes (in a `<toggle>`)
 
 Things that touch multiple cards but don't belong in any single card. Examples:
-- Sharla owns Cards 2, 5 (Part A), and parts of 4
+- {{client lead}} owns Cards 2, 5 (Part A), and parts of 4
 - Whiteboard Page 1 is active during Card 4; Page 2 reveals at Card 4 Step 3
 - Pre-work completion rate is assumed at ~30%; session is designed to work for non-doers
 
@@ -75,7 +75,7 @@ Pre-workshop facilitator checklist. Time-sequenced tasks with checkboxes.
 ```
 
 **Examples:**
-- [ ] Friday - email run of show to Evan/Khalil, offer to meet Monday
+- [ ] Friday - email run of show to Evan/{{client stakeholder}}, offer to meet Monday
 - [ ] Tuesday - Share transcript and briefs with attendees
 - [ ] Tuesday - Fwd SBA Debanking thread
 
@@ -128,7 +128,7 @@ Directly under the card heading, every card carries a row of exactly four pills,
 1. **Mode pill** (solid, colored, with an icon): the interaction mode (see the mode table below)
 2. **Duration pill** (outline): how long the card runs (`3 min`, `~30 sec`, `2.5 min`)
 3. **Clock-window pill** (outline): the absolute start to end time (`2:14–2:16`), so the facilitator knows if they're on pace at a glance
-4. **Lead pill** (outline): who runs this card (`Lead: Mariena`, `Lead: Sharla`, `Lead: Champions`, `Lead: Mariena setup + Breakouts`)
+4. **Lead pill** (outline): who runs this card (`Lead: Mariena`, `Lead: {{client lead}}`, `Lead: Champions`, `Lead: Mariena setup + Breakouts`)
 
 In markdown source, write the pill line as: `[MODE] · X min · start–end · Lead: Name`. In Gamma these become the styled `<label>` pills. The clock window and the named Lead are both required. They're what make the guide usable live and in a two-facilitator room.
 
@@ -148,7 +148,7 @@ Every card carries exactly one mode pill, drawn from this fixed set. Each mode h
 
 **The pill names the interaction MODE, not the tool.** If a specific tool is in play (Zoom Whiteboard, a specific slide), name the tool in the stage-direction line under the pills, not in the pill itself. This keeps the mode pill and the Session Arc timeline in sync. An earlier version drifted here, with a card pill reading "whiteboard" while the timeline read `[INDEPENDENT]` for the same card. Don't reintroduce that split.
 
-**Stage-direction line (optional):** Directly under the pills, a single plain sentence describing the physical action ("Sharla shares the Zoom Whiteboard, Page 1, walks the board, then adds her own post-it as a live demo"). This is not a talk track. It sets up what the facilitator is doing before the talking points begin.
+**Stage-direction line (optional):** Directly under the pills, a single plain sentence describing the physical action ("{{client lead}} shares the Zoom Whiteboard, Page 1, walks the board, then adds her own post-it as a live demo"). This is not a talk track. It sets up what the facilitator is doing before the talking points begin.
 
 When a card legitimately spans two modes (a setup talking point plus a heads-down block), use the **dominant mode** for the pill and call out the shift inside the card. If the two are roughly balanced in time, split into two cards.
 
@@ -168,7 +168,7 @@ Each card contains, in order:
 
 - **Say this**: spoken content in a blockquote, rendered in brand blue (`#005A8C`). Suggested phrasing; the facilitator hits the intent, not the exact words: `> "OK, pencils down on brainstorm. Take a breath."`
 - **Do this (don't say it)**: facilitator directions in **bold plain text**, imperative voice: `**Let the chat fill for 60 to 90 seconds. Read the responses. Don't rush.**` and timer lines like `**6 minutes on the clock. Go.**`
-- **Improvise here**: a bracketed insert in grey (`#595959`) inside the spoken line, marking where the facilitator fills in live: `> "I see what's in chat. [Sharla names 2 to 3 specific themes she sees.] Some of this has been hard."`
+- **Improvise here**: a bracketed insert in grey (`#595959`) inside the spoken line, marking where the facilitator fills in live: `> "I see what's in chat. [{{client lead}} names 2 to 3 specific themes she sees.] Some of this has been hard."`
 
 Heads-down and breakout work always ends on a bold imperative timer line (`**6 minutes on the clock. Go.**`).
 

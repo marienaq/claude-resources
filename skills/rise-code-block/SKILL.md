@@ -8,7 +8,7 @@ description: Builds custom interactive HTML/CSS/JavaScript code blocks for Artic
 Build custom interactive code blocks for Articulate Rise 360. This skill captures the technical patterns, constraints, and gotchas for writing HTML/CSS/JavaScript that works reliably inside Rise's sandboxed environment.
 
 **References:**
-- `references/styling.md` owns the CSS conventions: scoping, typography scale, Rise-native card/button/callout/checkbox/option-row styles, AI@ABA colors, and how to adapt accent colors. Load it when writing or reviewing any block's CSS.
+- `references/styling.md` owns the CSS conventions: scoping, typography scale, Rise-native card/button/callout/checkbox/option-row styles, {{client program}} colors, and how to adapt accent colors. Load it when writing or reviewing any block's CSS.
 - `references/persistence.md` owns saving and retrieving learner input across blocks: the localStorage mechanic, key naming, save-and-recap and draft-and-refine patterns, summary blocks, and the reset-for-testing snippet. Load it whenever input has to survive past the block it was typed into.
 
 ## When to Use
@@ -257,7 +257,7 @@ Use when a card or section has optional supplementary content (troubleshooting t
 
 ## Styling
 
-All CSS conventions live in `references/styling.md`: the typography scale (17px lesson-level, 15px contained, 12px labels), the Inter font import, the Rise-native white card, pill buttons, dividers, callouts, custom checkboxes, option rows, the AI@ABA color palette and gold button convention, and the checklist of places to update when adapting the accent color to a new brand.
+All CSS conventions live in `references/styling.md`: the typography scale (17px lesson-level, 15px contained, 12px labels), the Inter font import, the Rise-native white card, pill buttons, dividers, callouts, custom checkboxes, option rows, the {{client program}} color palette and gold button convention, and the checklist of places to update when adapting the accent color to a new brand.
 
 ---
 

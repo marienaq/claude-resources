@@ -80,7 +80,7 @@ Values is a real gate, not a soft preference. Each dimension is a precondition f
 
 **If it fails:** write a short verdict to `../signal-log.md` with the reason, add an index row marked `Not a prospect`, and stop. Do not research a company that failed the screen. Say plainly which test it failed.
 
-**If it is borderline,** say so and name the caveat rather than rounding to a yes. Progressive Leasing passed with a caveat on the word FinTech; that caveat is recorded, not buried.
+**If it is borderline,** say so and name the caveat rather than rounding to a yes. {{prospect company}} passed with a caveat on the word FinTech; that caveat is recorded, not buried.
 
 ### 3. Read the req for what it tells you
 
@@ -150,7 +150,7 @@ One question:
 
 The gap is the email. It is not a contradiction to catch them in and it is not a flaw to point out. It is the place where their own thinking and their own next move have not yet been reconciled, which is exactly where an outside perspective is worth reading.
 
-Worked example, Progressive Leasing: in March the CPO published that the middle management layer is thinning and learning has to route around it. In August her team posted a req asking someone to equip managers to lead an AI transition. Not a contradiction. The space between them is the whole problem.
+Worked example, {{prospect company}}: in March the CPO published that the middle management layer is thinning and learning has to route around it. In August her team posted a req asking someone to equip managers to lead an AI transition. Not a contradiction. The space between them is the whole problem.
 
 **Test the synthesis before moving on:** would the buyer repeat this observation to someone on their team? If not, it is flattery or it is obvious, and neither earns a reply.
 
@@ -202,8 +202,8 @@ Five beats. Fill each with **this account's** material. Write them as jobs to be
 
 These are safety rules, not style preferences. They apply to every brief.
 
-- **ABA and TWG may be named to a prospect (MQ ruling, 2026-09-01).** This **supersedes** the 8/18 default of writing "a national trade association," which Revi found does not survive contact with the reader: a banking buyer resolves the description to one organization instantly, so the anonymization concealed nothing and cost the credential its force. `branding/bio.md` already names both publicly. **Naming a client is not the same as using its numbers.** Sharla's clearance gate covers the champions figures and is unchanged, so a note may say who the work was with but may not carry a figure. Choose the client by the reader's industry; see `[[client-naming-in-outreach]]`.
-- **No figures** while Sharla's clearance on the content-series numbers is pending. Describe shape without numbers.
+- **{{client}} and {{client 2}} may be named to a prospect (MQ ruling, 2026-09-01).** This **supersedes** the 8/18 default of writing "a national trade association," which Revi found does not survive contact with the reader: a banking buyer resolves the description to one organization instantly, so the anonymization concealed nothing and cost the credential its force. `branding/bio.md` already names both publicly. **Naming a client is not the same as using its numbers.** {{client lead}}'s clearance gate covers the champions figures and is unchanged, so a note may say who the work was with but may not carry a figure. Choose the client by the reader's industry; see `[[client-naming-in-outreach]]`.
+- **No figures** while {{client lead}}'s clearance on the content-series numbers is pending. Describe shape without numbers.
 - **No pricing.** Enablement prices as monthly retainers and the amounts are undefined. There is nothing to quote.
 - **No offer, no meeting request** in the arc. Per Rule 8 the ask is a conversation. Per the 2026-08-18 rule, the job of the note is to engage the person and learn their problem, and what-we-sell language appears as one light line at most.
 - **AI is never the hero,** and here it is usually not even the subject. The buyer's subject is capability, learning, or change. AI is the occasion.

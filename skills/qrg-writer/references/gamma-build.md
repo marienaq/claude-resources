@@ -8,7 +8,7 @@ How the QRG renders in Gamma. Load when preparing the markdown for Gamma or revi
 - **Card width:** Large
 - **Font size:** Small
 - Each activity is a distinct page/section
-- Clean, corporate aesthetic matching ABA brand
+- Clean, corporate aesthetic matching {{client}} brand
 
 ## Card System
 

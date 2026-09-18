@@ -7,7 +7,7 @@ The visual system for Mellonhead workshop slides: layout, color, typography, ima
 ## Layout Principles
 
 - **16:9 slides**, built in Gamma
-- **AI@ABA logo** bottom-left on every slide
+- **{{client program}} logo** bottom-left on every slide
 - **Whitespace is structural.** Slides are never crowded. If a slide feels full, split it.
 - **Split-screen** for section dividers: text left (~50-60%), hero image right (~40-50%)
 - **Full-width** for content slides with minimal text
@@ -20,7 +20,7 @@ The visual system for Mellonhead workshop slides: layout, color, typography, ima
 | Element | Color | Notes |
 |---------|-------|-------|
 | Slide titles | Light gray (#58595b or similar) | Large, not bold |
-| Section labels | ABA Blue (#005a8c) or Teal (#008095) | Small, bold, above main title |
+| Section labels | {{client}} Blue (#005a8c) or Teal (#008095) | Small, bold, above main title |
 | Sub-headers on slides | Bold, colored (teal, blue, maroon) | Differentiates sections within a slide |
 | Body text | Dark gray/charcoal | Never pure black |
 | Backgrounds | White or very light gray | Clean, corporate |
@@ -50,9 +50,9 @@ The visual system for Mellonhead workshop slides: layout, color, typography, ima
   - Visual aids: origami crane (transforming flat material into structure)
   - Document comparison: glass panels side by side (transparency, comparison)
   - Action planning: modern office with large window (forward-looking)
-- **Recurring slide types use library images.** "Your turn", "Now try again", and other recurring types pull from the stable image library at `course-material/ABA/Brand_and_Graphics/slide-image-library.md`. Embed the URL directly in markdown so Gamma uses the same image every time instead of generating a fresh inconsistent one.
+- **Recurring slide types use library images.** "Your turn", "Now try again", and other recurring types pull from the stable image library at `course-material/{{client}}/Brand_and_Graphics/slide-image-library.md`. Embed the URL directly in markdown so Gamma uses the same image every time instead of generating a fresh inconsistent one.
 - **Image-free types.** Let's Share, Let's Reflect, and Breakouts intentionally use no photo. Frame layouts and color do the work.
-- **One-off hero images** are developed with the `/aba-image` skill first. That skill produces a brand-compliant concept and an AI image generator prompt with ABA hex codes. Pre-generate the image and embed the URL in markdown, or pass the concept prompt to Gamma's image generation (see `references/gamma-generation.md`).
+- **One-off hero images** are developed with the `/{{client}}-image` skill first. That skill produces a brand-compliant concept and an AI image generator prompt with {{client}} hex codes. Pre-generate the image and embed the URL in markdown, or pass the concept prompt to Gamma's image generation (see `references/gamma-generation.md`).
 - **Screenshots** for tool orientation slides only (Copilot interface)
 - Visual requirements: brand colors, flat iconography left to right, plenty of whitespace, clean lines, max 2-3 fonts and distinct colors per image
 

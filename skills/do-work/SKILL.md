@@ -65,7 +65,7 @@ Open every brief file. For each one:
 4. **Determine status:**
    - **Can move autonomously**: `dispatch_ready` is true; brief has a defined next step; no client-facing action required
    - **Waiting on MQ**: an open question with `blocks` set
-   - **Waiting on team**: Anushka / Jennifer / Sharla / external needed
+   - **Waiting on team**: {{instructional designer}} / {{researcher}} / {{client lead}} / external needed
    - **Subagent output pending review**: a delegated agent completed and MQ hasn't reviewed
    - **Ready to close**: deliverable shipped and MQ confirmed
 
@@ -75,13 +75,13 @@ Before checking delegation tags, look at what was ADDED since the last sweep and
 
 1. **TaskList sweep.** Any session task in `pending` status added since last sweep timestamp. For each, ask: does it have a brief file? Are inputs available? If yes to both, it belongs in this cycle's "start" queue.
 2. **Week sweep.** `mh plan show` for the current week's day cards, plus the unconfirmed and backlog rows in `tasks.json`. Especially watch on-the-business items (Ken updates, outreach sends, positioning drafts) that are shallow-to-medium and drawable from existing context. Read only; this sweep never places work into a day.
-3. **New-arrival check for the CoS pattern.** New Sharla-requested proposals, mid-week additions, coach updates, one-pager requests. Do they have enough context to at least sketch a content outline, gather doc, or scope-and-start brief? If yes, start.
+3. **New-arrival check for the CoS pattern.** New {{client lead}}-requested proposals, mid-week additions, coach updates, one-pager requests. Do they have enough context to at least sketch a content outline, gather doc, or scope-and-start brief? If yes, start.
 
 **Do not wait for MQ to type "run do-work with the new item."** If work has arrived and has sufficient inputs, Orca starts it and reports what was drafted for MQ review.
 
 ### Step 2b-2: Sweep delegation-tagged task-list items across all task-lists
 
-Task rows also carry delegation. Any row whose owner or notes name a specialist (`Iddy`, `general-purpose subagent`, `Jennifer`, `Anushka`, or similar) is a candidate for dispatch. `mh task list <project> --owner <name>` finds them per project; `tasks.json` carries the same field for a cross-project pass.
+Task rows also carry delegation. Any row whose owner or notes name a specialist (`Iddy`, `general-purpose subagent`, `{{researcher}}`, `{{instructional designer}}`, or similar) is a candidate for dispatch. `mh task list <project> --owner <name>` finds them per project; `tasks.json` carries the same field for a cross-project pass.
 
 For each delegation-tagged item:
 
@@ -118,11 +118,11 @@ For briefs in "Can move autonomously" state AND task-list items ready for dispat
 
 **After any dispatch, immediately record it:** `mh task dispatch <key#id> --to <agent> --expect <path> --actor orca`, so the next sweep sees an open dispatch and does not double-fire. **When it returns:** stat the artifact, then `mh task deliver <key#id> --artifact <path> --agent <agent> --actor orca`, which closes the dispatch. Orca records both for subagents (design §8, decision 5); a specialist running as the session records its own delivery.
 
-**After any Gamma publish for a client-facing deliverable, add it to the client's resource index.** For ABA, the index is at `course-material/ABA/AI-at-ABA-Resource-Index.md`.
+**After any Gamma publish for a client-facing deliverable, add it to the client's resource index.** For {{client}}, the index is at `course-material/{{client}}/{{client-program}}-Resource-Index.md`.
 
 Auto-add triggers:
 - Orca published a Gamma this cycle via `mcp__claude_ai_Gamma__generate`, AND
-- The source brief marks the deliverable as client-facing (audience is ABA staff, Champions, Steering Committee, or a named ABA stakeholder like Rick / Sharla / Alethia)
+- The source brief marks the deliverable as client-facing (audience is {{client}} staff, Champions, Steering Committee, or a named {{client}} stakeholder like {{stakeholder names}})
 
 When triggered:
 1. Pick the right section by content (Foundations course? Skills course? Champions monthly? Team workshop? Advisory/Policy? Reference?). If no section fits, add a new subsection with a clear name; do not dump into a "Miscellaneous" bucket unless the doc genuinely has no home.
@@ -182,7 +182,7 @@ The sweep reports had grown to the point where MQ could not keep up with them, w
 
 **1. Nothing found is one word.** Not a sentence, not an explanation of how you established it.
 
-> ❌ *"Slack DMs: nothing from either of them. The only new message is your own 10:22am answer to Anushka; her pointer advanced to it. Anushka has not replied yet. Jennifer silent since your 11:44am on 9/8, pointer unmoved."*
+> ❌ *"Slack DMs: nothing from either of them. The only new message is your own 10:22am answer to {{instructional designer}}; her pointer advanced to it. {{instructional designer}} has not replied yet. {{researcher}} silent since your 11:44am on 9/8, pointer unmoved."*
 > ✅ *"Slack: nothing."*
 
 The pointer mechanics, who was checked, when they last spoke, and how the absence was verified are all invisible work. Do it, log it in the worklog, do not report it.
@@ -204,7 +204,7 @@ The pointer mechanics, who was checked, when they last spoke, and how the absenc
 
 ### Step 7: Post to Slack (mandatory)
 
-Every `/do-work` sweep ends with a post to Slack channel `#agent-work-updates` (channel ID `C0BJ6FFH3QQ`). This gives MQ a phone-scannable update when she is away from the terminal.
+Every `/do-work` sweep ends with a post to Slack channel `#agent-work-updates` (channel ID `{{slack-channel-id}}`). This gives MQ a phone-scannable update when she is away from the terminal.
 
 Structure the post in standard markdown (the Slack MCP tool converts). Use `**bold**` for section headers, bullets with `•` or `-`.
 
