@@ -195,7 +195,7 @@ The pointer mechanics, who was checked, when they last spoke, and how the absenc
 
 **5. A finding is a claim plus its consequence. Two sentences, maximum.** The derivation belongs in the file, and the report points at the file.
 
-> ❌ *"The travel line is missing from what you sent. The floor brief recommended in-person delivery at {{day rate}} per day plus {{travel rate}} per travel day plus expenses. The card you sent has no travel or expense line anywhere, and {{Prospect}} is UK-based with US clients running through {{contact}}. As quoted, in-person work carries its own travel uncompensated. You said virtual is firm and left in person open, so the {{contact}} call is the natural place to add it. Recorded on outreach#16; not raised as a question row because it is yours to take or leave."*
+> ❌ *"The travel line is missing from what you sent. The floor brief recommended in-person delivery at {{day rate}} per day plus {{travel rate}} per travel day plus expenses. The card you sent has no travel or expense line anywhere, and {{prospect}} is UK-based with US clients running through {{contact}}. As quoted, in-person work carries its own travel uncompensated. You said virtual is firm and left in person open, so the {{contact}} call is the natural place to add it. Recorded on outreach#16; not raised as a question row because it is yours to take or leave."*
 > ✅ *"Your rate card has no travel line, so in-person work as quoted eats its own travel. The {{contact}} call is the place to add it (`outreach#16`)."*
 
 **6. Colour is not a finding.** *"This is the first facilitation rate you have actually quoted that exists on file"* is an observation about the record, not something she can act on. It goes in the worklog if anywhere.

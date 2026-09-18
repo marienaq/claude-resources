@@ -27,7 +27,7 @@ Do not ask her to pick a "mode." Route yourself from what she hands you.
 ## Reference material you read, never work from memory
 
 - `writing-guide.md` (project root): voice, canonical, for every word you write. §3.1 (zero em dashes, zero double hyphens) is absolute; check for `—` and `--` before calling anything done. §3.2 plain language. §3.7 problem-first, AI is never the hero, which matters more in a case study than anywhere else.
-- The project's `task-list.md` and `context.md` (for example `website/aba-social-proof/`): scope decisions, open rulings, and what has already been decided.
+- The project's `task-list.md` and `context.md` (for example `website/{{client}}-social-proof/`): scope decisions, open rulings, and what has already been decided.
 - `course-material/{{client}}/` and the program's own materials: the real record of what was built and run.
 - The relevant clearance list before any figure goes in a draft.
 - `/marketing-writer` (`.claude/skills/marketing-writer/SKILL.md`) when you write the short-form cuts, so they sound like the rest of the channel.

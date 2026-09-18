@@ -30,6 +30,17 @@ Placeholders like `{{client}}`, `{{your email}}` or `{{drive-file-id}}` mark spo
 
 Many of these were built for a solo consulting practice (AI education workshops) and reference each other, a `mh` task CLI, and a Notion/Slack/Drive setup. Treat them as worked examples to adapt rather than drop-in tools.
 
+## Syncing from a private repo
+
+Most of these skills are authored in a private project repo and mirrored here. `sync.py` re-copies the items in `sync-manifest.txt`, applies scrub rules that swap client names, contacts, and service IDs for `{{placeholders}}`, then runs a residual check (emails, phones, UUIDs, Slack IDs, local paths, and a private forbidden-terms list) and exits non-zero if anything slipped through.
+
+```sh
+./sync.py            # copy + scrub + check, then git status
+./sync.py --check    # just the residual check
+```
+
+The rules live in `.sync.local/` (gitignored, since they contain the real values). See the docstring in `sync.py` for the file formats.
+
 ## Skills
 
 - **agent-spec** — Decides whether a new capability belongs in an existing skill, a new skill, a new agent, or the store and dashboard, then writes the spec an
