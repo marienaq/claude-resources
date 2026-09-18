@@ -1,4 +1,4 @@
-# claude-skills
+# claude-resources
 
 My personal collection of [Claude Code](https://claude.com/claude-code) skills, slash commands, and agents.
 
@@ -16,7 +16,7 @@ docs/       notes and brainstorms
 Symlink what you want into your Claude Code config so it loads globally:
 
 ```sh
-git clone https://github.com/marienaq/claude-skills ~/Projects/claude
+git clone https://github.com/marienaq/claude-resources ~/Projects/claude
 cd ~/Projects/claude
 
 for s in skills/*/;   do ln -sfn "$PWD/$s" ~/.claude/skills/$(basename "$s"); done
@@ -26,7 +26,9 @@ for a in agents/*.md;   do ln -sf  "$PWD/$a" ~/.claude/agents/;                 
 
 Or copy a single skill folder into `.claude/skills/` inside a project.
 
-Placeholders like `{{your email}}` or `{{your-drive-folder-id}}` mark spots where the skill needs your own details.
+Placeholders like `{{client}}`, `{{your email}}` or `{{drive-file-id}}` mark spots where a skill or agent was written against my own clients, contacts, and tooling. Fill in your own, or strip the section.
+
+Many of these were built for a solo consulting practice (AI education workshops) and reference each other, a `mh` task CLI, and a Notion/Slack/Drive setup. Treat them as worked examples to adapt rather than drop-in tools.
 
 ## Skills
 
@@ -59,3 +61,17 @@ Placeholders like `{{your email}}` or `{{your-drive-folder-id}}` mark spots wher
 - **ss** — View the most recent screenshot from the Desktop
 - **video-script** — Writes video scripts for educational how-to videos and feature overviews. Two modes: prompts for AI video editors (Cluso) that enhance short
 - **write-learning** — Writes and refines language for learning resources in Mariena's voice: online courses, knowledge checks, course introductions, catalog cours
+
+## Agents
+
+- **casey** — Casey, Mellonhead's case study agent. Owns client case studies end-to-end, from angle and metrics through interviews, drafting, modular cuts
+- **cody** — Cody, Mellonhead's event copywriter. Writes the operational copy for invite-only events: invitations at every relationship distance, registr
+- **devi** — Devi, Mellonhead's toolkit developer. Owns the agents, skills, hooks, automation and memory that Mariena works with, and the skill-side use 
+- **fanny** — Fanny, Mellonhead's accountant agent (S-corp). Runs the weekly check of the WAS accountable-plan Google Sheet and drafts QBO journal entries
+- **iddy** — Iddy, Mellonhead's instructional-designer agent. Builds structured-workshop deliverables (facilitation guide, slides, QRG) from a final brie
+- **mark** — Mark, Mellonhead's marketing agent. Writes and reviews marketing content in Mariena's voice (LinkedIn posts, newsletters, website copy, comm
+- **orca** — Orca, Mellonhead's Chief of Staff agent. Takes asks from Mariena, uses /scope-and-start to align requirements and decide whether to do, dele
+- **revi-iddy** — Revi-Iddy, Mellonhead's instructional-design reviewer. Reviews ID work (course scope and objectives, test plans, session briefs, facilitatio
+- **revi-mark** — Revi-Mark, Mellonhead's marketing reviewer. Takes a critical second look at marketing copy written by Mark or by Mariena (LinkedIn posts, ne
+- **revi** — Revi, Mellonhead's general reviewer. Checks any non-ID, non-marketing deliverable before Orca surfaces it to Mariena: research outputs, brie
+- **scout** — Scout, Mellonhead's business-development researcher. Owns the Discovery and BD lane's research: prospect and target-list research for outrea
