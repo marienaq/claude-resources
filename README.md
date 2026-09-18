@@ -67,7 +67,6 @@ Many of these were built for a solo consulting practice (AI education workshops)
 - **casey** — Casey, Mellonhead's case study agent. Owns client case studies end-to-end, from angle and metrics through interviews, drafting, modular cuts
 - **cody** — Cody, Mellonhead's event copywriter. Writes the operational copy for invite-only events: invitations at every relationship distance, registr
 - **devi** — Devi, Mellonhead's toolkit developer. Owns the agents, skills, hooks, automation and memory that Mariena works with, and the skill-side use 
-- **fanny** — Fanny, Mellonhead's accountant agent (S-corp). Runs the weekly check of the WAS accountable-plan Google Sheet and drafts QBO journal entries
 - **iddy** — Iddy, Mellonhead's instructional-designer agent. Builds structured-workshop deliverables (facilitation guide, slides, QRG) from a final brie
 - **mark** — Mark, Mellonhead's marketing agent. Writes and reviews marketing content in Mariena's voice (LinkedIn posts, newsletters, website copy, comm
 - **orca** — Orca, Mellonhead's Chief of Staff agent. Takes asks from Mariena, uses /scope-and-start to align requirements and decide whether to do, dele
