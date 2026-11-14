@@ -34,7 +34,7 @@ The default actor is Orca. If this session was not started with `claude --agent 
 
 Then read `operations/orca-worklog.md` for the narrative the board cannot carry: what was dispatched, what came back, what MQ ruled. **Treat it as a log, not as state.** If its last-updated date is more than 5 days old, rebuild the Current in-flight table from the dashboard before quoting anything in it; a frozen table presented as fact is worse than a blank one. The worklog has gone stale twice while task rows moved underneath it, so check the date every time.
 
-**Two lanes, and this sweep owns one of them.** The **focus lane** is MQ's week: the day cards in `priorities.md`, the Friday proposal, the commitment rules. The **work lane** is every open task across every project, which is what the board shows. `/do-work` reads the board and advances work regardless of whether it appears in MQ's week. **It never writes a day card and never sets what MQ does on a given day.** Concretely: `mh task plan`, `mh plan propose`, and `mh plan lock` are not this sweep's commands. Surfacing something into the week is a backlog proposal, not a placement.
+**Two lanes, and this sweep owns one of them.** The **focus lane** is MQ's week: the day cards in `priorities.md`, the Friday proposal, the commitment rules. The **work lane** is every open task across every project, which is what the board shows. `/do-work` reads the board and advances work regardless of whether it appears in MQ's week. **It never writes a day card and never sets what MQ does on a given day.** Concretely: `mh task plan`, `mh plan propose`, and `mh plan lock` are not this sweep's commands. The one exception is Step 1b: a change she typed in the week-proposal thread is applied as she worded it, while the week is still proposed. Surfacing something into the week is a backlog proposal, not a placement.
 
 **Every task write here goes through `./operations/mh`**, never a hand edit. `task-list.md` and `priorities.md` are generated from the store; a hand edit is silently overwritten at the next regeneration. Pass `--actor orca` on every write. Command surface: `operations/mh-reference.md`.
 
@@ -45,6 +45,7 @@ Then read `operations/orca-worklog.md` for the narrative the board cannot carry:
 | blocked on a person other than MQ | `mh task status <key#id> waiting --waiting-on "<who>" --actor orca` |
 | needs MQ to decide | `mh question add <key#id> "<text>" --proposed "<default>" --blocks "<who waits>" --actor orca` |
 | what is open on her | `mh question list --open` |
+| show her a question | `python3 automation/slack-bot/slackbot.py questions --ids <id,id>` (report rule 7) |
 | sent to an agent | `mh task dispatch <key#id> --to <agent> --expect <path> --actor orca` |
 | came back from an agent | `mh task deliver <key#id> --artifact <path> --agent <agent> --actor orca` |
 | reviewer verdict | `mh task review <key#id> --verdict <verdict> --findings <path> --agent <reviewer> --actor orca` (verdict: `pass`, `pass-with-notes`, `back`) |
@@ -54,6 +55,50 @@ Then read `operations/orca-worklog.md` for the narrative the board cannot carry:
 | find the row | `mh task find <words>` |
 
 Note files under `<project>/task-notes/`, briefs, `context.md`, and `decisions.md` stay hand-written.
+
+### Step 1b: Her replies to the week proposal
+
+The Friday proposal is DMed to Mariena by the Orca bot, and the thread is where she reacts to it ("move X to Wednesday", "drop the deck row", "looks good"). Read it every sweep, before the briefs:
+
+```
+python3 automation/slack-bot/slackbot.py week-replies
+```
+
+It prints, per open week thread, only her messages (author `{{slack-user-id}}`, no `bot_id`) newer than that thread's pointer. For each one:
+
+- **The week is proposed, and she names a change** (a row to a day, off the week, a different load): it is her ruling on her own week, so apply exactly what she named with `mh task plan` / `mh task load --actor orca`, nothing more. Do not re-shape the rest of the week around it, and do not run `mh plan propose` again. This is the one place this sweep writes a day card, and only on her words.
+- **She approves or asks to lock:** do not lock. `mh plan lock` is hers. Reply that it is ready to lock in the session manager.
+- **The week is already locked, or the ask is unclear:** `mh question add` with your proposed reading, and do not move anything.
+
+A reply about one of the questions the proposal listed goes through Step 1c's rules (match, decision, latest wins, still open), with the proposal's listed questions as the thread's questions.
+
+Acknowledge each in the thread with one line saying what changed (`post dm --file <path> --thread <thread_ts>`), then `python3 automation/slack-bot/slackbot.py week-seen <thread_ts> <latest reply ts>`. Advance the pointer only after the change is written, so a failed run leaves the reply for the next one. A reply she sends top-level in the DM instead of in the thread goes to the energy-log run, not here; the proposal post tells her to reply in the thread.
+
+### Step 1c: Her answers to questions in Slack
+
+**Gated off until further notice:** while `automation/state/question-replies.disabled` exists (or `question-threads` exits non-zero), skip this step entirely and apply nothing from Slack replies.
+
+She answers questions where they reach her (ruled 2026-10-20, `ai-workflows#28`). Every sweep post that carries questions is posted with `--watch`, which records the thread and the question ids in it. Read them before the briefs:
+
+```
+python3 automation/slack-bot/slackbot.py question-threads
+```
+
+It prints each watched thread (`thread_ts`, `channel`, `questions`, `last_seen`) and the `#agent-work-updates` top-level pointer. The bot cannot read history, so read each thread with `slack_read_thread`, and the channel since `top_level_seen` with `slack_read_channel`. Her messages are author `{{slack-user-id}}` with no `bot_id`. Read all of her new messages in a thread together, not one at a time, with the bot's own replies in that thread as context (a candidate list it posted is what "the second one" refers to). Then, per question:
+
+1. **Match it to exactly one question.** In a thread: she names the id (`Q59`), or a subject that fits exactly one of the thread's questions, or picks from a candidate list the bot posted there, or the thread carries only one question. At top level: only an id, or a subject that fits exactly one question in `mh question list --open`; a top-level message is never pinned to the latest post. Anything else is unmatched.
+2. **Decide whether it is a decision.** Only a decision is written:
+   - **Accept** is a yes to the proposal (MQ ruling 2026-10-20): "yes", "ok", a 👍 typed or as a reaction, "yes, go with that", "go with the proposal", "accept", "agreed", "approved". `mh question accept <id> --source "slack <ts>" --actor orca`.
+   - **A different decision**, in her words ("no, keep it at three", "move it to 10/28"): `mh question answer <id> "<her words>" --source "slack <ts>" --actor orca`.
+   - **Not a decision, so no write:** a deferral or hedge ("let me think", "later", "ask {{client lead}} first", "not sure"), or a question back. The question stays open; one line in the worklog; and in a thread, one bot reply, once per message: "Not applied. Reply yes to take the proposal, or say what you want instead."
+3. **Latest wins.** When several of her messages touch the same question, the latest decides. A reversal with no clear final word ("yes", then "wait, no") is undecided: no write.
+4. **Still open?** Check `mh question list --open` immediately before every write. A question already answered or withdrawn is skipped and logged, never overwritten.
+5. **Unmatched in a thread with several questions:** apply nothing. Post one reply in that thread listing the candidates in the rule 7 shape and asking which she meant. Her next reply is matched against that list.
+6. **Unmatched at top level:** no write and no reply; one line in the worklog.
+
+Acknowledge each written answer in the thread with one line saying what it settled. Then advance the pointer past her latest message, `python3 automation/slack-bot/slackbot.py question-seen <thread_ts> <latest ts>` (`top` in place of the thread for the channel), whether or not anything was written: a write or a candidate reply happens first, and a non-decision is already in the worklog, so nothing is lost and nothing is re-posted next sweep.
+
+**This is the only place a Slack reply closes a question.** `/capture` and Step 1b point here; neither applies one under its own rules.
 
 ### Step 2a: For each open brief in the worklog's Current in-flight table
 
@@ -113,7 +158,7 @@ For briefs in "Can move autonomously" state AND task-list items ready for dispat
 - Draft refinements for MQ review (in the brief file's Draft section)
 - Record status with `mh task status`; the narrative of what happened goes in `mh task note`. Dispatch, delivery and review are their own verbs (below), not notes.
 - **Closing a task:** `mh task done <key#id> --actor orca`. One command sets the status, clears the `Seq` so a closed row cannot resurface as next, stamps the day-card line, and regenerates every view it touches. It then prints the project's next open action.
-- **Route every returned deliverable through its reviewer before it is marked ready:** `revi-iddy` (instructional design), `revi-mark` (marketing copy), `revi` (everything else). Reviewers are read-only and may run in any tier. Record the verdict: `mh task review <key#id> --verdict <pass|pass-with-notes|back> --findings <path> --agent <reviewer> --actor orca` (a reviewer running as the session records its own). `back` re-dispatches the builder with the findings file; `pass` and `pass-with-notes` move the item to review with the findings file path beside it.
+- **Route every returned deliverable through its reviewer before it is marked ready:** `revi-iddy` (instructional design), `revi` (everything else). Marketing copy is not reviewed while `revi-mark` is paused (MQ, 2026-11-08). Reviewers are read-only and may run in any tier. Record the verdict: `mh task review <key#id> --verdict <pass|pass-with-notes|back> --findings <path> --agent <reviewer> --actor orca` (a reviewer running as the session records its own). `back` re-dispatches the builder with the findings file; `pass` and `pass-with-notes` move the item to review with the findings file path beside it.
 - Move items into the Worklog "Ready for your review" section
 
 **After any dispatch, immediately record it:** `mh task dispatch <key#id> --to <agent> --expect <path> --actor orca`, so the next sweep sees an open dispatch and does not double-fire. **When it returns:** stat the artifact, then `mh task deliver <key#id> --artifact <path> --agent <agent> --actor orca`, which closes the dispatch. Orca records both for subagents (design §8, decision 5); a specialist running as the session records its own delivery.
@@ -156,7 +201,7 @@ If a working subagent surfaced a question that needs MQ input, it becomes a row,
 Rewrite `operations/orca-worklog.md`:
 
 - **Update Current in-flight table** with new statuses / blockers / next steps
-- **Waiting on you** is pasted, not written: the output of `mh question list --open`, verbatim, under a line that says so. It cannot drift because it is not prose.
+- **Waiting on you** is pasted, not written: the output of `python3 automation/slack-bot/slackbot.py questions`, verbatim, under a line that says so. It cannot drift because it is not prose, and each line carries the project, the task and the proposed answer (rule 7).
 - **Waiting on team** is pasted from `mh task list <project> --json` filtered to `status == waiting` with a `waiting_on`, one line per row, across projects.
 - **Ready for your review** is pasted from the same JSON filtered to the last `review` event with verdict `pass` or `pass-with-notes`, with the findings path.
 - "The week in one line" and "Rolling check-ins" stay hand-written (design §8, decision 3).
@@ -169,7 +214,7 @@ Keep the check-in history to the last 10 entries (trim older into a `check-in-ar
 After the worklog is updated, hand MQ a short chat message:
 
 - What advanced this cycle (1-3 items, most important first)
-- What's now waiting on MQ: the top three open questions by what they block, each as `Q<id>`, the question, and the proposed answer, so she can accept from her phone
+- What's now waiting on MQ: the top three open questions by what they block, in the rule 7 shape, so she can accept from her phone
 - What's still stuck on team members (with any suggested nudges)
 - Ready for your review (with file paths)
 - Ready to close (if any)
@@ -200,13 +245,20 @@ The pointer mechanics, who was checked, when they last spoke, and how the absenc
 
 **6. Colour is not a finding.** *"This is the first facilitation rate you have actually quoted that exists on file"* is an observation about the record, not something she can act on. It goes in the worklog if anywhere.
 
+**7. A question reads on its own** (MQ ruling 2026-10-20, `ai-workflows#28`: *"I don't have a way of decoding the number to the actual question."*). Every question or decision shown to her, in Slack or chat, carries the project and the task in words, the question in plain language with enough context to decide without opening a file, and the proposed answer. The id goes last, in parentheses, so she can reply by it; it never stands alone, and neither does a task key.
+
+> ❌ *"Q68 Does "The good doesn't just happen" take Wed 10/21? Proposed: yes, and the Gamma debrief moves to 10/28. Blocks content-series#41."*
+> ✅ *"**AI Champions Content Series, "Newsletter: democratizing technology".** Does this issue take the Wed 10/21 slot, with the Gamma event debrief moving to 10/28? **Proposed:** Yes. "Which I talked about last week" only works the week after the funk issue. (Q68)"*
+
+Render store questions with `python3 automation/slack-bot/slackbot.py questions --ids <id,id>` (or a project or `key#id` scope) and paste the lines; never type them from `mh question list`. Its warnings on stderr name the lines to fix before posting: a question that leans on another id or key, or one too long for a phone. Rewrite that sentence in the post so it stands alone; keep the project, task, proposed answer and id. When you add a question (`mh question add`), write the text that way to begin with, because the text is what she reads. One question per bullet. A decision the post asks of her that is not a store question gets the same three parts.
+
 **Budget: 150 words for the Slack post, hard.** If it does not fit, the answer is fewer items, not shorter sentences: surface the top three and let the worklog hold the rest. A sweep that surfaces one real thing has done its job.
 
 ### Step 7: Post to Slack (mandatory)
 
 Every `/do-work` sweep ends with a post to Slack channel `#agent-work-updates` (channel ID `{{slack-channel-id}}`). This gives MQ a phone-scannable update when she is away from the terminal.
 
-Structure the post in standard markdown (the Slack MCP tool converts). Use `**bold**` for section headers, bullets with `•` or `-`.
+Structure the post in standard markdown (the bot posts it as `markdown_text`, which renders it). Use `**bold**` for section headers, bullets with `•` or `-`.
 
 ```
 **Orca /do-work update, YYYY-MM-DD HH:MM**
@@ -215,7 +267,7 @@ Structure the post in standard markdown (the Slack MCP tool converts). Use `**bo
 • [item] → [what's next after your review]
 
 **Waiting on you (top three, by what they block):**
-• Q41 [question]. Proposed: [answer]. Blocks [who].
+• **[Project], "[task title]".** [the question, standing on its own] **Proposed:** [answer] (Q41, blocks [who])
 
 **Waiting on team:**
 • [person: item]
@@ -233,11 +285,17 @@ Guidelines:
 - If a section is empty, omit it (do not post empty headers). Do not replace it with a line saying it was empty.
 - **A sweep with nothing to surface posts nothing.** A "no change" post is noise that trains her to skim the channel, which costs the one real finding its audience. Silence is a valid sweep result.
 - Use file paths, not file URLs; MQ opens files in Obsidian on her laptop.
-- Never post client-sensitive names or content to this channel unless it is already public. When in doubt, generalize.
+- **Client detail is fine in Slack** (MQ ruling 2026-10-20): the workspace is limited to people under NDA, so full question context, client names included, is allowed in `#agent-work-updates` and the project channels. This is about Slack only; files committed to this repo, which is public, keep their own rules.
 
-Tool: `mcp__claude_ai_Slack__slack_send_message` with `channelName: "agent-work-updates"` and the drafted post as text.
+**Post as the Orca bot, never through the Slack connector** (ruled 2026-10-19, `ai-workflows#27`): a connector post is authored as Mariena and never notifies her. Write the post to a file in `automation/state/outbox/` (the command below uses `do-work-post.md`), then:
 
-**Project channels (MQ ruling 2026-09-11, Q6).** Each question this sweep created is also posted once, on its own, to the owning project's Slack channel: `Q<id> [question]. Proposed: [answer].` The channel comes from the `Slack channel` column in `operations/project-registry.md`; read the row for the question's project before posting. Blank means the project has no channel yet, so the question appears only in the `#agent-work-updates` post above, and nothing is posted elsewhere. A channel that is not in that column is one this sweep may not post to. The `#agent-work-updates` post keeps only the top three by what they block; the project channel carries the rest. Post a question to its channel once, in the sweep that created it, never again.
+```
+python3 automation/slack-bot/slackbot.py post agent-work-updates --file automation/state/outbox/do-work-post.md --watch
+```
+
+`--watch` records the thread and its question ids so the next sweep reads her answers (Step 1c); use it on every post that carries a question. It prints the message ts; `--thread <ts>` makes it a thread reply. The script refuses any channel outside `#agent-work-updates`, `#agent-errors`, the bot's DM with Mariena, and the registry's `Slack channel` column. A non-zero exit means nothing was posted; say so in the worklog. Reading stays on the connector. Setup: `automation/slack-bot/README.md`.
+
+**Project channels (MQ ruling 2026-09-11, Q6).** Each question this sweep created is also posted once, on its own, to the owning project's Slack channel, as the `questions --ids <id>` line, with `--watch`. The channel comes from the `Slack channel` column in `operations/project-registry.md`; read the row for the question's project before posting. Blank means the project has no channel yet, so the question appears only in the `#agent-work-updates` post above, and nothing is posted elsewhere. A channel that is not in that column is one this sweep may not post to. The `#agent-work-updates` post keeps only the top three by what they block; the project channel carries the rest. Post a question to its channel once, in the sweep that created it, never again.
 
 ## Brief-file conventions (that `/do-work` depends on)
 

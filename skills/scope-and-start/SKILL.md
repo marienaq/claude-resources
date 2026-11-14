@@ -54,7 +54,7 @@ When running unattended (the scheduled sweep), the mirror happens in the store, 
 mh question add <key#id> "<the question>" --proposed "<your default answer>" --blocks "<who waits>" --actor orca
 ```
 
-**A proposed answer is mandatory.** A question without one is a research task, not a question: do the research, then ask. The cheapest reply Mariena can give is Accept, and every question should be one click from closed. `--blocks` names the person or session waiting ({{instructional designer}}, Thursday's session, the dispatch); a question that blocks nobody is a note, not a question. The command prints `Q<n>`; list the ids in the brief under `## Mariena's Next Actions` as `- Q41: <text>` with **no** `**MQ:**` slot, then stop. The next sweep resumes when `mh question list <key#id>` is empty; it never reads slots.
+**A proposed answer is mandatory.** A question without one is a research task, not a question: do the research, then ask. The cheapest reply Mariena can give is Accept, and every question should be one click from closed. `--blocks` names the person or session waiting ({{instructional designer}}, Thursday's session, the dispatch); a question that blocks nobody is a note, not a question. **The text is what she reads in Slack, so it stands on its own:** the decision in plain language with enough context to make it without opening the brief, never a reference to another id or key (`/do-work` report rule 7, ruled 2026-10-20). The command prints `Q<n>`; list the ids in the brief under `## Mariena's Next Actions` as `- Q41: <text>` with **no** `**MQ:**` slot, then stop. The next sweep resumes when `mh question list <key#id>` is empty; it never reads slots.
 
 ### Step 2: Assess
 

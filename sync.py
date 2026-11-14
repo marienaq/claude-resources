@@ -59,7 +59,7 @@ def copy(items, source):
             src, dst = source / "skills" / name, ROOT / "skills" / name
             if dst.exists():
                 shutil.rmtree(dst)
-            shutil.copytree(src, dst, ignore=shutil.ignore_patterns(".DS_Store", "__pycache__"))
+            shutil.copytree(src, dst, ignore=shutil.ignore_patterns(".DS_Store", "__pycache__", "node_modules", "Icon\r"))
             targets += [f for f in dst.rglob("*") if f.suffix in (".md", ".py")]
         elif kind == "agent":
             src, dst = source / "agents" / f"{name}.md", ROOT / "agents" / f"{name}.md"

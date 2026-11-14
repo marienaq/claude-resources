@@ -36,3 +36,5 @@ agent revi
 agent revi-iddy
 agent revi-mark
 agent scout
+skill kit-resource-launch
+skill mellonhead-word-document

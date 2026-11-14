@@ -1,0 +1,8 @@
+{
+  "name": "mellonhead-word-document",
+  "private": true,
+  "description": "Helper for branded Mellonhead Word files (docx-js).",
+  "dependencies": {
+    "docx": "9.0.2"
+  }
+}

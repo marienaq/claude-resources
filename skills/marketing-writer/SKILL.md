@@ -250,6 +250,24 @@ A family of moves that cost credibility to fake and earn it when they are real. 
 - For website copy, every paragraph should survive the "so what?" test on its own
 - For newsletters, the intro paragraph is the post. Everything after it is bonus.
 
+### Mellonmail send details (every issue)
+
+The one home for this checklist (`ai-workflows#40`, 2026-11-13). Every Mellonmail issue gets it once the body settles, whoever drafted the issue: `/newsletter-from-transcripts` step 7 points here, and an issue she wrote herself gets it the same way. The 11/10 manager-manifesto issue shipped without a meta description because the block lived only in `/newsletter-from-transcripts`, which never ran on a draft of hers.
+
+Write it as a "Send details for Kit" block at the top of the issue's `drafts.md`. Every line in it is new copy; say so at its top. Model: `marketing/newsletters/2026-09-16-skills-to-change-work/drafts.md`.
+
+1. **Subject line:** 2 to 3 options, the reader's problem, not the answer, with a recommendation.
+2. **Preview text (preheader):** one line that adds the surprise the subject holds back. Never let Kit auto-fill it from the first line of the body. If the issue teases a download, the preview text names it.
+3. **SEO / meta description:** 2 to 3 options, each under 155 characters, saying which carries the search intent and which makes the best share card. **The Kit API has no SEO field**, so it goes in the post settings by hand: say "paste in Kit's post settings" next to it.
+4. **SEO title:** the subject if it already reads as a search phrase; otherwise one option.
+5. **Slug:** it fixes the live URL, `https://subscribe.mellonhead.co/posts/<slug>`. Kit sets it from the subject unless she changes it, so name it now.
+6. **Sends from:** her own email address.
+7. **Sign-off:** ✌🏻 Mariena, always, above the footer (canonical in `branding/bio.md`).
+8. **Footer:** the canonical footer from `branding/bio.md`, verbatim.
+9. **Gap check before send:** the subject is paid off early, every link resolves in Kit's preview, any resource link carries `?utm_source=mellonmail`, and any call that is still hers is listed.
+
+Then run `/cross-post` in the same pass against the slug (its "When to use" is the trigger rule).
+
 ---
 
 ## Routing: decide this yourself
@@ -263,7 +281,10 @@ A family of moves that cost credibility to fake and earn it when they are real. 
 | A draft plus one named worry ("is the hook landing") | The review protocol, lead with that check, still run the rest |
 | A draft she is mid-revision on | The review protocol, scoped to what changed and what it broke downstream |
 | A published piece being repurposed for another channel | The review protocol against the new channel's rules |
+| Recordings of herself on a topic (Tactiq transcripts, videos, voice memos) handed over for a newsletter | Neither. Run `/newsletter-from-transcripts`; it loads this skill for voice and review |
 | Copy for an invite-only event (invitation, registration page, reminder, follow-up) | Neither. It is `cody`'s, and Mark's pass on it is the voice check in both directions, not this protocol |
+| A Mellonmail issue whose body has settled, or "it's ready to go in Kit" | **Mellonmail send details** (above), then `/cross-post` |
+| A finished downloadable resource that needs its landing page and download funnel | Neither. Run `/kit-resource-launch` (the file itself is `/mellonhead-word-document`) |
 
 If a marketing draft is in front of you, the review protocol is the default. She does not have to ask for it.
 
@@ -272,6 +293,12 @@ If a marketing draft is in front of you, the review protocol is the default. She
 ## Writing new content
 
 Apply Tension-Evidence-Reframe-Context-CTA, or the Observational Field Note arc when the piece opens on a scene. Flag if the hook is buried or the differentiator lives too far down. Then run the review protocol on your own draft before showing it.
+
+**Three rules from the Family Q Finances video copy (2026-11-08), where v1 and v2 missed:**
+
+- **Write from her latest version, and treat every link she shares as a source.** She shared a Gamma deck that held her final description and the Mint story, and the copy kept drawing on her older notes. Before drafting, read every link and file she has handed over in the conversation, check the folder for anything newer (a recording, a deck, an edited file), and draft from the newest. If two sources disagree, the newer one wins.
+- **Follow the structure she built, not the one you proposed.** Chapters were written to match the shape suggested earlier in the session rather than the order of her deck. Once her artifact exists, it is the outline.
+- **Her sentences, joined so they read as one piece.** Stitching her lines in order is not the same as writing in her voice; v1 read choppy. Keep her lines, add the few connecting words that let the story flow in order (list them), and cut the frame around the copy (open calls, process notes) down to what she needs to act on.
 
 ---
 

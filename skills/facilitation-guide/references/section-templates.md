@@ -29,27 +29,28 @@ The orientation section. Designed for a facilitator who's returning to this guid
 
 ### A. Master timeline table
 
-Single table covering every card in the session: card number (filled in second pass, see Build Mode 1), mode, time, start to end, lead, and a one-line "what happens."
+Single table covering every card in the session, one row per named section: section name, slide numbers (filled in the second pass, see Build Mode 1; "No slide" for a demo or any stretch off the deck; the same slide numbers go in parentheses after each section name in the arc paragraph, timing rule, cross-cutting notes and contingencies), mode, time, start to end, lead, and a one-line "what happens." No position numbers (MQ, 2026-09-21: block and card numbers are hard for humans; names are the anchors).
 
-| # | Card | Mode | Time | Start–End | Lead | What happens |
+| Section | Slides | Mode | Time | Start–End | Lead | What happens |
 |---|---|---|---|---|---|---|
-| 1 | Opening + chat question | [CHAT] | 3 min | 2:00–2:03 | Mariena | Welcome + chat question on hardest part of being a Champion |
-| 2 | Acknowledgment + recommit framing | [SLIDES] | 5 min | 2:03–2:08 | {{client lead}} | Pick up chat themes + frame the manager-in-the-loop shift |
+| Open | Slides 1 to 3 | [POLL] | 4 min | 2:00–2:04 | Mariena | "We heard you"; two-question poll; chat prompt |
+| Demo | No slide | [DEMO] | 3 min | 2:27–2:30 | Mariena | Build to the first table, from the rehearsed chat by default |
+| Test it | No slide, then 9 to 11 | [INDEPENDENT] | 6 min | 2:45–2:51 | Mariena, then Champions | Two words shown once; three tests; the closing line |
 | ... | | | | | | |
 
 The "What happens" column emphasizes **what participants actually do**, not just the topic.
 
-### B. Narrative arc paragraph
+### B. The arc, by section
 
-A short prose paragraph (3-5 sentences) that walks through the session's narrative arc. Emphasizes activities and movement, not topics. *Example: "We open with a chat question that names what's been hard. {{client lead}} picks up those themes and frames the shift we're making. Champions then generate their own work history on a shared whiteboard before seeing the role framework: agency before structure. From there we move into independent Action Plan work: brainstorm, barriers, prioritization, monthly plan. Peer Troika stress-tests the draft. We close with next steps and an interest poll."*
+Placed above the master timeline. One short paragraph per named section, in run order, with the section name in bold as the anchor: what it teaches or what participants do, in a sentence or two. Sections that form one movement can share a paragraph ("The build runs in three sections: ..."). This is what a returning facilitator reads to remember the shape, and the names it uses are the names every other part of the guide points to. Emphasizes activities and movement, not topics. *Example: "We open with a chat question that names what's been hard. {{client lead}} picks up those themes and frames the shift we're making. Champions then generate their own work history on a shared whiteboard before seeing the role framework: agency before structure. From there we move into independent Action Plan work: brainstorm, barriers, prioritization, monthly plan. Peer Troika stress-tests the draft. We close with next steps and an interest poll."*
 
 A returning facilitator reads this paragraph and remembers the shape immediately.
 
 ### C. Cross-cutting notes (in a `<toggle>`)
 
 Things that touch multiple cards but don't belong in any single card. Examples:
-- {{client lead}} owns Cards 2, 5 (Part A), and parts of 4
-- Whiteboard Page 1 is active during Card 4; Page 2 reveals at Card 4 Step 3
+- {{client lead}} owns the recommit framing, Part A of the role calibration, and parts of the work-history whiteboard
+- Whiteboard Page 1 is active during the work-history section; Page 2 reveals at its third step
 - Pre-work completion rate is assumed at ~30%; session is designed to work for non-doers
 
 Wrap in `<toggle><summary><strong>Cross-cutting notes</strong></summary>...</toggle>` so it's collapsible.
@@ -57,8 +58,8 @@ Wrap in `<toggle><summary><strong>Cross-cutting notes</strong></summary>...</tog
 ### D. Contingencies (in a `<toggle>`)
 
 What to do if the session drifts off-plan. Examples:
-- If Card 4 runs over by more than 3 min: cut Card 11d to 4 min
-- If chat is dead in Card 1: seed with one of the post-it examples
+- If the work-history section runs over by more than 3 min: cut the peer troika to 4 min
+- If chat is dead in the open: seed with one of the post-it examples
 - If a Champion is openly resistant during Role Calibration: name it briefly, move on, don't argue in front of the room
 
 Also collapsible via `<toggle>`.
@@ -114,23 +115,23 @@ The core of the document. One card per atomic unit of the session: each card is 
 ### Card Heading Format
 
 ```
-## Card N: Card title
+## Section title · Slide N
 ```
 
-Example: `## Card 7: Phase 2 Barriers (Independent Work)`
+Examples: `## Build yours · Slide 8`, `## Test it · No slide, then Slides 9 to 11`, `## Demo: building it · No slide`. First pass, before slides exist: `## Build yours` alone.
 
-The card number (`N`) is filled in during the **second pass**, after slides are generated, so card numbers can match the slide deck numbering. In the first pass, write cards as `## Card: Title` (no number). The second-pass step in Build Mode 1 covers numbering.
+Cards are named, never numbered by position (MQ, 2026-09-21). The title is the section name used in the F2 arc and timeline, so a cross-reference anywhere in the guide ("take the minutes from the Agents in practice open question") lands on a heading. In the **second pass**, after slides are generated, the heading gains every slide the section uses, and each talking-point heading and timing cue gains the slide on screen (`· Slide 4`, `· No slide`). Use the deck's own naming ("Slide" for PowerPoint, "Card" for Gamma), one convention per guide, the same in headers and in the F2 summary. The second-pass step in Build Mode 1 covers it.
 
 ### Card header: the four-pill line
 
-Directly under the card heading, every card carries a row of exactly four pills, in this order:
+Directly under the card heading, every card carries a row of pills (four in the first pass, five once slides exist), in this order:
 
 1. **Mode pill** (solid, colored, with an icon): the interaction mode (see the mode table below)
 2. **Duration pill** (outline): how long the card runs (`3 min`, `~30 sec`, `2.5 min`)
 3. **Clock-window pill** (outline): the absolute start to end time (`2:14–2:16`), so the facilitator knows if they're on pace at a glance
 4. **Lead pill** (outline): who runs this card (`Lead: Mariena`, `Lead: {{client lead}}`, `Lead: Champions`, `Lead: Mariena setup + Breakouts`)
 
-In markdown source, write the pill line as: `[MODE] · X min · start–end · Lead: Name`. In Gamma these become the styled `<label>` pills. The clock window and the named Lead are both required. They're what make the guide usable live and in a two-facilitator room.
+In markdown source, write the pill line as: `[MODE] · X min · start–end · Lead: Name · Slide N` (the fifth pill arrives in the second pass, same value as the heading suffix: `Slides 1 to 3`, `No slide`, `No slide, then Slides 9 to 11`). In Gamma these become the styled `<label>` pills. The clock window and the named Lead are both required. They're what make the guide usable live and in a two-facilitator room. **Why the slide number is on the pill as well as the heading:** Gamma keeps the pill line intact but strips the `· Slide N` suffix from an `##` heading on import (seen 2026-09-21), so the pill is what survives the render.
 
 ### Mode pills: fixed set, one color and icon each
 
@@ -156,7 +157,7 @@ When a card legitimately spans two modes (a setup talking point plus a heads-dow
 
 Each card contains, in order:
 
-1. **Card heading** (`## Card N: Title`)
+1. **Card heading** (`## Title · Slide N`, or `## Title` before slides exist)
 2. **Four-pill header** (mode · duration · clock window · Lead)
 3. **Stage-direction line** (optional): plain sentence, the physical setup
 4. **Body**: the talking points and any activity scaffolds (see below)
@@ -184,7 +185,7 @@ Every card ends with a grey callout box, led by a bold **Facilitator notes:** la
 In Gamma this is an `<aside color="#F2F2F2" variant="info">`. In markdown source, write it as:
 
 ```markdown
-> **Facilitator notes:** TP1 must reference the specific chat themes Champions just dropped. "We haven't done a great job" is the unlock; don't soften it. TP2's "your commitment to yourself, to us, and to your manager" sets up Cards 14 and 21.
+> **Facilitator notes:** TP1 must reference the specific chat themes Champions just dropped. "We haven't done a great job" is the unlock; don't soften it. TP2's "your commitment to yourself, to us, and to your manager" sets up the monthly plan and the closing micro-commitment.
 ```
 
 If a card genuinely has nothing worth noting, omit the box. The big cross-session contingencies also collect into the global Contingencies grid in the front matter (see the F3 Facilitator Notes card), so a card-level note and a global contingency can intentionally repeat.
@@ -208,4 +209,4 @@ The standard card (four-pill header, talk track, grey notes) covers most of the 
 
 ## Cross-Card Threading
 
-The format is a linked narrative, not a list of independent cards. In the facilitator notes, name what a card **sets up** and what earlier card it **pays off**, by number: "sets up Cards 14 and 21," "that's Card 13's job," "Card 20 does the full WIIFM." The To Do checklist and Contingencies grid also reference cards by number ("Dead Chat (Card 1)", "if short on time, cut Card 23"). This threading is what lets a facilitator understand why each card exists and what depends on it. Write it during the numbering pass, once card numbers are stable.
+The format is a linked narrative, not a list of independent cards. In the facilitator notes, name what a card **sets up** and what earlier card it **pays off**, by section name: "sets up Show and tell," "that is Test it's job," "the demo does the full WIIFM." The To Do checklist and Contingencies grid also reference cards by name ("if the opening chat is dead", "if short on time, cut the Agents in practice open question"). Never by position number. This threading is what lets a facilitator understand why each card exists and what depends on it. Write it once the section names are stable, which is before slides exist; the slide-number pass does not change it.

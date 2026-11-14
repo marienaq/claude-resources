@@ -56,7 +56,9 @@ The rules live in `.sync.local/` (gitignored, since they contain the real values
 - **grill-me** — Pressure-test a new project idea before building it. Use when the user shares a project/product/feature idea and wants it challenged — to su
 - **infographic** — Designs viral-worthy infographics using Vincent Pierri's 4-step validation framework (Real Pain Point, Immediately Actionable, Less Saturate
 - **jd-brief** — Turns a job description for an AI enablement / adoption / champions role into a screened, researched prospect brief Mariena can write an out
+- **kit-resource-launch** — Stands up the Kit side of a free downloadable resource: a paper-and-felt landing page with an optional newsletter checkbox, download on the thank-you page, tags, automation rules and welcome sequence, ending in click-by-click UI steps.
 - **marketing-writer** — Writes AND reviews marketing content in Mariena's voice for Mellonhead: LinkedIn posts, newsletters, conference promos, website copy, speaki
+- **mellonhead-word-document** — Builds a branded, editable Word file in the paper-and-felt style with docx-js: full-bleed torn-paper collage header, fill-in callouts, stitched boxes, felt-dot headings, idea and tip cards.
 - **pdf-form-filler** — Fill out a PDF form (applications, contracts, intake forms, registrations). Reads the form to detect its fields, gathers what it can from pr
 - **presentation-writer** — Writes workshop slide content matching Mellonhead's presentation DNA, covering slide taxonomy, activity arc sequences, density rules, voice,
 - **project-kickoff** — Turns a project idea plus already-gathered context into a Notion project page that works as a shareable context hub, holding the background,

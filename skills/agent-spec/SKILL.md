@@ -73,6 +73,7 @@ Rules of construction:
 - **Deterministic work goes in a script.** If a check can be a script, it is a script under `scripts/`, and the step says how to run it. Prose asking the model to "carefully check every path" is how drift happens.
 - **One gate per handback.** Every place the skill stops and waits for Mariena is a named step with what it hands her and what it needs back. Questions carry a proposed answer.
 - **Store writes go through `mh`** with `--actor`; the exact command is quoted so `mh check-skills` can verify it.
+- **A step that turns her free-text reply into a store write names three things** (revi on `ai-workflows#28`, 2026-10-20): what counts as no answer (a deferral, a hedge, a bare acknowledgement), how the reply is matched to exactly one item (and what happens when it fits several, or a later message reverses an earlier one), and what happens to the read pointer when nothing is written. Without all three, a "let me think" closes a question.
 
 ## Step 4: where a rule lives
 
